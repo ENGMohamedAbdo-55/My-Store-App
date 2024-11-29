@@ -245,11 +245,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "14.2.5"
-<<<<<<< HEAD
-sdks:
-  dart: ">=3.3.3 <4.0.0"
-  flutter: ">=3.18.0-18.0.pre.54"
-=======
   web:
     dependency: transitive
     description:
@@ -261,4 +256,3 @@ sdks:
 sdks:
   dart: ">=3.4.0 <4.0.0"
   flutter: ">=3.22.0"
->>>>>>> f2b19d05b0a3737377f52eac3026475b0dc8a985
