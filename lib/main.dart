@@ -20,7 +20,7 @@ void main() async {
           ),
         )
       : await Firebase.initializeApp();
- await SystemChrome.setPreferredOrientations(
+  await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp],
   ).then((_) {
     runApp(const MyStoreApp());
