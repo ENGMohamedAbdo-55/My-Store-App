@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/app/connectivity_controller.dart';
 import 'package:my_store/core/common/screen/no_network_screen.dart';
+import 'package:my_store/core/styles/images/fonts/font_family_helper.dart';
 
 class MyStoreApp extends StatelessWidget {
   const MyStoreApp({super.key});
@@ -16,7 +17,7 @@ class MyStoreApp extends StatelessWidget {
         if (value) {
           return ScreenUtilInit(
             designSize: const Size(375, 812),
-            minTextAdapt: true ,
+            minTextAdapt: true,
             child: MaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'Flutter Demo',
@@ -40,7 +41,36 @@ class MyStoreApp extends StatelessWidget {
                   title: const Text('MyStore'),
                 ),
                 body: const Center(
-                  child: Text('MyStore'),
+                  child: Column(
+                    children: [
+                      Text(
+                        'English',
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                      Text(
+                        'عربي',
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                      Text(
+                        'English',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: FontFamilyHelper.poppinsEnglish,
+                        ),
+                      ),
+                      Text(
+                        'عربي',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: FontFamilyHelper.cairoArabic,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
