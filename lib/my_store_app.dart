@@ -5,7 +5,7 @@ import 'package:my_store/core/common/screen/no_network_screen.dart';
 import 'package:my_store/core/language/local_localization_setup.dart';
 import 'package:my_store/core/routes/app_routs.dart';
 
-import 'package:my_store/core/styles/theme/ap_theme.dart';
+import 'package:my_store/core/styles/theme/app_theme.dart';
 
 
 class MyStoreApp extends StatelessWidget {

@@ -11,7 +11,7 @@ class UnderBuildScreen extends StatelessWidget {
         constraints: const BoxConstraints.expand(),
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(AppImages.underBuild),
+            image: AssetImage(AppImages.pageUnderBuild),
             fit: BoxFit.fill,
           ),
         ),
