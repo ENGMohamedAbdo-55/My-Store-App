@@ -9,6 +9,8 @@ extension ContextExt on BuildContext {
 
 //?Colors
   MyColors get colors => Theme.of(this).extension<MyColors>()!;
+  //?style
+  TextStyle get textStyle => Theme.of(this).textTheme.displaySmall!;
 
 //?Language
   String translate(String langKey) {

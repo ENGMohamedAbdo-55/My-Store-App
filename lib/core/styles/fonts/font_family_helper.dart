@@ -3,5 +3,13 @@ class FontFamilyHelper {
 
   static const String cairoArabic = 'Cairo';
   static const String poppinsEnglish = 'Poppins';
-  //Todo: switch between arabic and english fonts
+  static String getLocalFontFamily() {
+    const currentLanguage = 'ar';
+
+    if (currentLanguage == 'ar') {
+      return cairoArabic;
+    } else {
+      return poppinsEnglish;
+    }
+  }
 }
