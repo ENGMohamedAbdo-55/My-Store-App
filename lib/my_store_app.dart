@@ -1,11 +1,12 @@
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_store/core/app/connectivity_controller.dart';
 import 'package:my_store/core/common/screen/no_network_screen.dart';
+import 'package:my_store/core/language/local_localization_setup.dart';
 import 'package:my_store/core/routes/app_routs.dart';
-import 'package:my_store/core/styles/fonts/font_family_helper.dart';
+
 import 'package:my_store/core/styles/theme/ap_theme.dart';
+
 
 class MyStoreApp extends StatelessWidget {
   const MyStoreApp({super.key});
@@ -24,13 +25,21 @@ class MyStoreApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               title: 'Flutter Demo',
               theme: themeDark(),
+              locale: const Locale('en'),
+              supportedLocales: AppLocalizationsSetup.supportedLocales,
+              localeResolutionCallback:
+                  AppLocalizationsSetup.localeResolutionCallback,
+                  localizationsDelegates: AppLocalizationsSetup.localizationsDelegates,
               builder: (context, widget) {
-                return Scaffold(
-                  body: Builder(
-                    builder: (context) {
-                      ConnectivityController.instance.init();
-                      return widget!;
-                    },
+                return GestureDetector(
+                  onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+                  child: Scaffold(
+                    body: Builder(
+                      builder: (context) {
+                        ConnectivityController.instance.init();
+                        return widget!;
+                      },
+                    ),
                   ),
                 );
               },
