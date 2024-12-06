@@ -44,7 +44,7 @@ class MyStoreApp extends StatelessWidget {
                 );
               },
               onGenerateRoute: AppRouts.onGenrateRoute,
-              initialRoute: AppRouts.testOneScreen,
+              initialRoute: AppRouts.login,
             ),
           );
         } else {
