@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart' show Locale, LocalizationsDelegate;
-import 'package:my_store/core/language/app_localization.dart';
+import 'app_localization.dart';
 
 // Defining a custom LocalizationsDelegate for AppLocalizations.
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

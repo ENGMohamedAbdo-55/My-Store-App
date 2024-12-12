@@ -62,7 +62,13 @@ class MyStoreApp extends StatelessWidget {
                       );
                     },
                     onGenerateRoute: AppRouts.onGenrateRoute,
-                    initialRoute: AppRouts.login,
+                    initialRoute: SharedPref()
+                                .getString(PrefKeys.accessToken) !=
+                            null
+                        ? SharedPref().getString(PrefKeys.userRole) == 'admin'
+                            ? AppRouts.homeCustomer
+                            : AppRouts.homeAdmin
+                        : AppRouts.login,
                   );
                 },
               ),

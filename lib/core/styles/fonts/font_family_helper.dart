@@ -1,5 +1,5 @@
-import 'package:my_store/core/service/shared_pref/pref_keys.dart';
-import 'package:my_store/core/service/shared_pref/shared_pref.dart';
+import '../../service/shared_pref/pref_keys.dart';
+import '../../service/shared_pref/shared_pref.dart';
 
 class FontFamilyHelper {
   const FontFamilyHelper._();

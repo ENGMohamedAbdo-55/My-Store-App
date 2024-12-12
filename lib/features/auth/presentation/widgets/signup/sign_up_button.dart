@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/core/common/animation/animate_do.dart';
-import 'package:my_store/core/common/widgets/custom_linear_button.dart';
-import 'package:my_store/core/common/widgets/text_app.dart';
-import 'package:my_store/core/extensions/context_extensions.dart';
-import 'package:my_store/core/language/lang_keys.dart';
-import 'package:my_store/core/styles/fonts/font_weight_helper.dart';
+import '../../../../../core/common/animation/animate_do.dart';
+import '../../../../../core/common/widgets/custom_linear_button.dart';
+import '../../../../../core/common/widgets/text_app.dart';
+import '../../../../../core/extensions/context_extensions.dart';
+import '../../../../../core/language/lang_keys.dart';
+import '../../../../../core/styles/fonts/font_weight_helper.dart';
 
 class SignUpButton extends StatelessWidget {
   const SignUpButton({super.key});

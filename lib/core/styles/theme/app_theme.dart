@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:my_store/core/styles/colors/colors_dark.dart';
-import 'package:my_store/core/styles/colors/colors_light.dart';
-import 'package:my_store/core/styles/fonts/font_family_helper.dart';
-import 'package:my_store/core/styles/theme/color_extension.dart';
+import '../colors/colors_dark.dart';
+import '../colors/colors_light.dart';
+import '../fonts/font_family_helper.dart';
+import 'color_extension.dart';
 
-import 'package:my_store/core/styles/theme/assets_extension.dart';
+import 'assets_extension.dart';
 
 ThemeData themeDark() {
   return ThemeData(
