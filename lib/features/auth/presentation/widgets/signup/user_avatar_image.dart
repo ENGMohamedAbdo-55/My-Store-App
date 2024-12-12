@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/core/common/animation/animate_do.dart';
+import '../../../../../core/common/animation/animate_do.dart';
 
 class UserAvatarImage extends StatelessWidget {
   const UserAvatarImage({super.key});

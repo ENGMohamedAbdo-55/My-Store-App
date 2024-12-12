@@ -4,12 +4,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_store/core/app/bloc_observer.dart';
+import 'core/app/bloc_observer.dart';
 
-import 'package:my_store/core/app/env.variable.dart';
-import 'package:my_store/core/di/injection_container.dart';
-import 'package:my_store/core/service/shared_pref/shared_pref.dart';
-import 'package:my_store/my_store_app.dart';
+import 'core/app/env.variable.dart';
+import 'core/di/injection_container.dart';
+import 'core/service/shared_pref/shared_pref.dart';
+import 'my_store_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

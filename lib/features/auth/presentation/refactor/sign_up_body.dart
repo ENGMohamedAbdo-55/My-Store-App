@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/core/common/animation/animate_do.dart';
-import 'package:my_store/core/common/widgets/text_app.dart';
-import 'package:my_store/core/extensions/context_extensions.dart';
-import 'package:my_store/core/language/lang_keys.dart';
-import 'package:my_store/core/routes/app_routs.dart';
-import 'package:my_store/core/styles/fonts/font_weight_helper.dart';
-import 'package:my_store/features/auth/presentation/widgets/auth_title_info.dart';
-import 'package:my_store/features/auth/presentation/widgets/dark_and_lang_buttons.dart';
+import '../../../../core/common/animation/animate_do.dart';
+import '../../../../core/common/widgets/text_app.dart';
+import '../../../../core/extensions/context_extensions.dart';
+import '../../../../core/language/lang_keys.dart';
+import '../../../../core/routes/app_routs.dart';
+import '../../../../core/styles/fonts/font_weight_helper.dart';
+import '../widgets/auth_title_info.dart';
+import '../widgets/dark_and_lang_buttons.dart';
 
-import 'package:my_store/features/auth/presentation/widgets/signup/sign_up_button.dart';
-import 'package:my_store/features/auth/presentation/widgets/signup/sign_up_text_form.dart';
-import 'package:my_store/features/auth/presentation/widgets/signup/user_avatar_image.dart';
+import '../widgets/signup/sign_up_button.dart';
+import '../widgets/signup/sign_up_text_form.dart';
+import '../widgets/signup/user_avatar_image.dart';
 
 class SignUpBody extends StatelessWidget {
   const SignUpBody({super.key});

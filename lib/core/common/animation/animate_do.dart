@@ -1,7 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:my_store/core/service/shared_pref/pref_keys.dart';
-import 'package:my_store/core/service/shared_pref/shared_pref.dart';
+import '../../service/shared_pref/pref_keys.dart';
+import '../../service/shared_pref/shared_pref.dart';
 
 class CustomFadeInDown extends StatelessWidget {
   const CustomFadeInDown({

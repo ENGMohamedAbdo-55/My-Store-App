@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_store/core/language/app_localization.dart';
-import 'package:my_store/core/styles/theme/color_extension.dart';
-import 'package:my_store/core/styles/theme/assets_extension.dart';
+import '../language/app_localization.dart';
+import '../styles/theme/color_extension.dart';
+import '../styles/theme/assets_extension.dart';
 
 extension ContextExt on BuildContext {
 //?Images

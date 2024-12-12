@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/core/common/animation/animate_do.dart';
-import 'package:my_store/core/common/widgets/text_app.dart';
-import 'package:my_store/core/extensions/context_extensions.dart';
-import 'package:my_store/core/styles/fonts/font_weight_helper.dart';
+import '../../../../core/common/animation/animate_do.dart';
+import '../../../../core/common/widgets/text_app.dart';
+import '../../../../core/extensions/context_extensions.dart';
+import '../../../../core/styles/fonts/font_weight_helper.dart';
 
 class AuthTitleInfo extends StatelessWidget {
   const AuthTitleInfo({
