@@ -61,11 +61,12 @@ class MyStoreApp extends StatelessWidget {
                         ),
                       );
                     },
+                    navigatorKey: sl<GlobalKey<NavigatorState>>()  ,
                     onGenerateRoute: AppRouts.onGenrateRoute,
                     initialRoute: SharedPref()
                                 .getString(PrefKeys.accessToken) !=
                             null
-                        ? SharedPref().getString(PrefKeys.userRole) == 'admin'
+                        ? SharedPref().getString(PrefKeys.userRole) != 'admin'
                             ? AppRouts.homeCustomer
                             : AppRouts.homeAdmin
                         : AppRouts.login,

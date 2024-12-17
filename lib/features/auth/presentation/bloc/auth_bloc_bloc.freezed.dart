@@ -20,18 +20,21 @@ mixin _$AuthBlocEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() login,
+    required TResult Function(String imagUrl) signUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? login,
+    TResult? Function(String imagUrl)? signUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? login,
+    TResult Function(String imagUrl)? signUp,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$AuthBlocEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(LoginEvent value) login,
+    required TResult Function(SignUpEvent value) signUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(LoginEvent value)? login,
+    TResult? Function(SignUpEvent value)? signUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(LoginEvent value)? login,
+    TResult Function(SignUpEvent value)? signUp,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +126,7 @@ class _$StartedImpl implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() login,
+    required TResult Function(String imagUrl) signUp,
   }) {
     return started();
   }
@@ -129,6 +136,7 @@ class _$StartedImpl implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? login,
+    TResult? Function(String imagUrl)? signUp,
   }) {
     return started?.call();
   }
@@ -138,6 +146,7 @@ class _$StartedImpl implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? login,
+    TResult Function(String imagUrl)? signUp,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -151,6 +160,7 @@ class _$StartedImpl implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(LoginEvent value) login,
+    required TResult Function(SignUpEvent value) signUp,
   }) {
     return started(this);
   }
@@ -160,6 +170,7 @@ class _$StartedImpl implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(LoginEvent value)? login,
+    TResult? Function(SignUpEvent value)? signUp,
   }) {
     return started?.call(this);
   }
@@ -169,6 +180,7 @@ class _$StartedImpl implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(LoginEvent value)? login,
+    TResult Function(SignUpEvent value)? signUp,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -225,6 +237,7 @@ class _$LoginEventImpl implements LoginEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() login,
+    required TResult Function(String imagUrl) signUp,
   }) {
     return login();
   }
@@ -234,6 +247,7 @@ class _$LoginEventImpl implements LoginEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? login,
+    TResult? Function(String imagUrl)? signUp,
   }) {
     return login?.call();
   }
@@ -243,6 +257,7 @@ class _$LoginEventImpl implements LoginEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? login,
+    TResult Function(String imagUrl)? signUp,
     required TResult orElse(),
   }) {
     if (login != null) {
@@ -256,6 +271,7 @@ class _$LoginEventImpl implements LoginEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(LoginEvent value) login,
+    required TResult Function(SignUpEvent value) signUp,
   }) {
     return login(this);
   }
@@ -265,6 +281,7 @@ class _$LoginEventImpl implements LoginEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(LoginEvent value)? login,
+    TResult? Function(SignUpEvent value)? signUp,
   }) {
     return login?.call(this);
   }
@@ -274,6 +291,7 @@ class _$LoginEventImpl implements LoginEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(LoginEvent value)? login,
+    TResult Function(SignUpEvent value)? signUp,
     required TResult orElse(),
   }) {
     if (login != null) {
@@ -285,6 +303,153 @@ class _$LoginEventImpl implements LoginEvent {
 
 abstract class LoginEvent implements AuthBlocEvent {
   const factory LoginEvent() = _$LoginEventImpl;
+}
+
+/// @nodoc
+abstract class _$$SignUpEventImplCopyWith<$Res> {
+  factory _$$SignUpEventImplCopyWith(
+          _$SignUpEventImpl value, $Res Function(_$SignUpEventImpl) then) =
+      __$$SignUpEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String imagUrl});
+}
+
+/// @nodoc
+class __$$SignUpEventImplCopyWithImpl<$Res>
+    extends _$AuthBlocEventCopyWithImpl<$Res, _$SignUpEventImpl>
+    implements _$$SignUpEventImplCopyWith<$Res> {
+  __$$SignUpEventImplCopyWithImpl(
+      _$SignUpEventImpl _value, $Res Function(_$SignUpEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AuthBlocEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? imagUrl = null,
+  }) {
+    return _then(_$SignUpEventImpl(
+      imagUrl: null == imagUrl
+          ? _value.imagUrl
+          : imagUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SignUpEventImpl implements SignUpEvent {
+  const _$SignUpEventImpl({required this.imagUrl});
+
+  @override
+  final String imagUrl;
+
+  @override
+  String toString() {
+    return 'AuthBlocEvent.signUp(imagUrl: $imagUrl)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SignUpEventImpl &&
+            (identical(other.imagUrl, imagUrl) || other.imagUrl == imagUrl));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, imagUrl);
+
+  /// Create a copy of AuthBlocEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SignUpEventImplCopyWith<_$SignUpEventImpl> get copyWith =>
+      __$$SignUpEventImplCopyWithImpl<_$SignUpEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() login,
+    required TResult Function(String imagUrl) signUp,
+  }) {
+    return signUp(imagUrl);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? login,
+    TResult? Function(String imagUrl)? signUp,
+  }) {
+    return signUp?.call(imagUrl);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? login,
+    TResult Function(String imagUrl)? signUp,
+    required TResult orElse(),
+  }) {
+    if (signUp != null) {
+      return signUp(imagUrl);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(LoginEvent value) login,
+    required TResult Function(SignUpEvent value) signUp,
+  }) {
+    return signUp(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(LoginEvent value)? login,
+    TResult? Function(SignUpEvent value)? signUp,
+  }) {
+    return signUp?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(LoginEvent value)? login,
+    TResult Function(SignUpEvent value)? signUp,
+    required TResult orElse(),
+  }) {
+    if (signUp != null) {
+      return signUp(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignUpEvent implements AuthBlocEvent {
+  const factory SignUpEvent({required final String imagUrl}) =
+      _$SignUpEventImpl;
+
+  String get imagUrl;
+
+  /// Create a copy of AuthBlocEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SignUpEventImplCopyWith<_$SignUpEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

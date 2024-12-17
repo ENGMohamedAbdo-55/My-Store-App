@@ -6,7 +6,7 @@ class LangKeys {
   static const String email = 'your_email';
   static const String password = 'password';
   static const String validEmail = 'valid_email';
-  static const String validPasswrod = 'valid_passwrod';
+  static const String validPassword = 'valid_passwrod';
   static const String loggedSuccessfully = 'logged_successfully';
   static const String loggedError = 'logged_error';
   static const String createAccount = 'create_account';
@@ -32,4 +32,5 @@ class LangKeys {
   static const String no = 'no';
   static const String darkMode = 'dark_mode';
   static const String langCode = 'lang_code';
+
 }
