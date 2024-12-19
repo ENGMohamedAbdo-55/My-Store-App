@@ -4,7 +4,6 @@ import '../models/sign_up_response.dart';
 import '../models/user_role_response.dart';
 
 import '../../../../core/service/graphql/api_result.dart';
-import '../../../../core/utils/app_strings.dart';
 import '../data-source/auth_data_source.dart';
 import '../models/login_request_body.dart';
 import '../models/login_response.dart';
@@ -29,7 +28,7 @@ class AuthRepo {
     return response;
   }
 
-    //SignUp
+  //SignUp
   Future<ApiResult<SignUpResponse>> signUp(SignUpRequestBody body) async {
     try {
       final response = await _dataSource.signUp(body: body);
