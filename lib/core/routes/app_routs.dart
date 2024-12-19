@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_store/core/app/upload-image/cubit/upload_image_cubit.dart';
 import 'package:my_store/core/di/injection_container.dart';
-import 'package:my_store/features/admin/home_admin.dart';
+import 'package:my_store/features/admin/dashboard/presentation/screens/dashboard_screen.dart';
+import 'package:my_store/features/admin/home-admin/presentation/screens/home_admin_screen.dart';
 import 'package:my_store/features/auth/presentation/bloc/auth_bloc_bloc.dart';
 import 'package:my_store/features/customer/home_customer.dart';
 import 'package:my_store/core/common/screen/under_build_screen.dart';
@@ -15,6 +16,7 @@ class AppRouts {
   static const String signUp = 'signUp';
   static const String homeAdmin = 'homeAdmin';
   static const String homeCustomer = 'homeCustomer';
+  static const String dashboard = 'dashboard';
 
   static Route<void> onGenrateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -24,6 +26,10 @@ class AppRouts {
             create: (context) => sl<AuthBloc>(),
             child: const LoginScreen(),
           ),
+        );
+      case dashboard:
+        return BaseRoute(
+          page: const DashboardScreen(),
         );
       case signUp:
         return BaseRoute(
