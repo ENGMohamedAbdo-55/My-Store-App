@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/core/common/animation/animate_do.dart';
-import 'package:my_store/core/common/widgets/custom_text_field.dart';
-import 'package:my_store/core/extensions/context_extensions.dart';
-import 'package:my_store/core/language/lang_keys.dart';
-import 'package:my_store/core/utils/app_regix.dart';
-import 'package:my_store/features/auth/presentation/bloc/auth_bloc_bloc.dart';
+import '../../../../../core/common/animation/animate_do.dart';
+import '../../../../../core/common/widgets/custom_text_field.dart';
+import '../../../../../core/extensions/context_extensions.dart';
+import '../../../../../core/language/lang_keys.dart';
+import '../../../../../core/utils/app_regix.dart';
+import '../../bloc/auth_bloc_bloc.dart';
 
 class SignUpTextForm extends StatefulWidget {
   const SignUpTextForm({super.key});

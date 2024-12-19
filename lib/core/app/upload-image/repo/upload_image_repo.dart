@@ -1,8 +1,8 @@
 import 'package:image_picker/image_picker.dart';
-import 'package:my_store/core/app/upload-image/data-source/upload_image_data_source.dart';
-import 'package:my_store/core/app/upload-image/model/upload_image_response.dart';
-import 'package:my_store/core/language/lang_keys.dart';
-import 'package:my_store/core/service/graphql/api_result.dart';
+import '../data-source/upload_image_data_source.dart';
+import '../model/upload_image_response.dart';
+import '../../../language/lang_keys.dart';
+import '../../../service/graphql/api_result.dart';
 
 class UploadImageRepo {
   UploadImageRepo(this._dataSource);

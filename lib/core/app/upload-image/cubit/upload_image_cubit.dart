@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:my_store/core/app/upload-image/repo/upload_image_repo.dart';
-import 'package:my_store/core/utils/pick_image.dart';
+import '../repo/upload_image_repo.dart';
+import '../../../utils/pick_image.dart';
 
 part 'upload_image_state.dart';
 part 'upload_image_cubit.freezed.dart';

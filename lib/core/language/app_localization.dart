@@ -1,8 +1,8 @@
 import 'dart:convert' show json;
 
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'app_localization_delegate.dart';
 
 class AppLocalizations {

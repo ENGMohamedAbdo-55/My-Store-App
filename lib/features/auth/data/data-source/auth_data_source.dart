@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:my_store/features/auth/data/models/sign_up_request_body.dart';
-import 'package:my_store/features/auth/data/models/sign_up_response.dart';
+import '../models/sign_up_request_body.dart';
+import '../models/sign_up_response.dart';
 
 import '../../../../core/service/graphql/api_service.dart';
 import '../../../../core/service/graphql/graphql_queries/auth/auth_queries.dart';

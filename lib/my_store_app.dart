@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/core/app/app_cubit/app_cubit.dart';
-import 'package:my_store/core/app/connectivity_controller.dart';
-import 'package:my_store/core/common/screen/no_network_screen.dart';
-import 'package:my_store/core/di/injection_container.dart';
-import 'package:my_store/core/language/local_localization_setup.dart';
-import 'package:my_store/core/routes/app_routs.dart';
-import 'package:my_store/core/service/shared_pref/pref_keys.dart';
-import 'package:my_store/core/service/shared_pref/shared_pref.dart';
+import 'core/app/app_cubit/app_cubit.dart';
+import 'core/app/connectivity_controller.dart';
+import 'core/common/screen/no_network_screen.dart';
+import 'core/di/injection_container.dart';
+import 'core/language/local_localization_setup.dart';
+import 'core/routes/app_routs.dart';
+import 'core/service/shared_pref/pref_keys.dart';
+import 'core/service/shared_pref/shared_pref.dart';
 
-import 'package:my_store/core/styles/theme/app_theme.dart';
+import 'core/styles/theme/app_theme.dart';
 
 class MyStoreApp extends StatelessWidget {
   const MyStoreApp({super.key});

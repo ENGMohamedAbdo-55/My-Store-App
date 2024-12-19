@@ -16,42 +16,36 @@ class AppRouts {
   static const String homeAdmin = 'homeAdmin';
   static const String homeCustomer = 'homeCustomer';
 
-
   static Route<void> onGenrateRoute(RouteSettings settings) {
     switch (settings.name) {
       case login:
         return BaseRoute(
-            page: BlocProvider(
-          create: (context) => sl<AuthBloc>(),
-          child: const LoginScreen(),
-        ),);
+          page: BlocProvider(
+            create: (context) => sl<AuthBloc>(),
+            child: const LoginScreen(),
+          ),
+        );
       case signUp:
         return BaseRoute(
-            page: MultiBlocProvider(
-              providers: [
-                BlocProvider(
-                  create: (context) => sl<UploadImageCubit>(),
-                ),
-                BlocProvider(
-                  create: (context) => sl<AuthBloc>(),
-                ),
-              ],
-              child: const SignUpScreen()),
-        
+          page: MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => sl<UploadImageCubit>(),
+              ),
+              BlocProvider(
+                create: (context) => sl<AuthBloc>(),
+              ),
+            ],
+            child: const SignUpScreen(),
+          ),
         );
-        case homeAdmin:
+      case homeAdmin:
         return BaseRoute(
-            page:  const HomeAdmin(),
-        
+          page: const HomeAdmin(),
         );
-        case homeCustomer:
+      case homeCustomer:
         return BaseRoute(
-            page: const HomeCustomer(),
-        );
-        case homeCustomer:
-        return BaseRoute(
-            page: const HomeCustomer(),
-        
+          page: const HomeCustomer(),
         );
       default:
         return BaseRoute(page: const UnderBuildScreen());

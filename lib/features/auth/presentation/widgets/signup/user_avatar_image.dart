@@ -30,7 +30,6 @@ class UserAvatarImage extends StatelessWidget {
                 seconds: 2,
               );
             },
-            
           );
         },
         builder: (context, state) {
@@ -76,8 +75,8 @@ class UserAvatarImage extends StatelessWidget {
                             context.read<UploadImageCubit>().removeImage();
                           },
                           icon: const Icon(
-                            Icons.remove,
-                            color: Colors.white,
+                            Icons.delete,
+                            color: Colors.red,
                           ),
                         ),
                       )

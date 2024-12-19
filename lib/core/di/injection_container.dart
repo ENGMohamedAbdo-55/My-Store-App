@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:my_store/core/app/upload-image/cubit/upload_image_cubit.dart';
-import 'package:my_store/core/app/upload-image/data-source/upload_image_data_source.dart';
-import 'package:my_store/core/app/upload-image/repo/upload_image_repo.dart';
-import 'package:my_store/features/auth/data/data-source/auth_data_source.dart';
-import 'package:my_store/features/auth/data/repos/auth_repo.dart';
-import 'package:my_store/core/app/app_cubit/app_cubit.dart';
-import 'package:my_store/core/service/graphql/api_service.dart';
-import 'package:my_store/core/service/graphql/dio_factory.dart';
+import 'package:my_store/features/auth/presentation/bloc/auth_bloc_bloc.dart';
+import '../app/upload-image/cubit/upload_image_cubit.dart';
+import '../app/upload-image/data-source/upload_image_data_source.dart';
+import '../app/upload-image/repo/upload_image_repo.dart';
+import '../../features/auth/data/data-source/auth_data_source.dart';
+import '../../features/auth/data/repos/auth_repo.dart';
+import '../app/app_cubit/app_cubit.dart';
+import '../service/graphql/api_service.dart';
+import '../service/graphql/dio_factory.dart';
 
 final sl = GetIt.instance;
 Future<void> setupInjector() async {
@@ -31,7 +32,7 @@ Future<void> _initCore() async {
 
 Future<void> _initAuth() async {
   sl
-    ..registerFactory(() => AuthRepo(sl()))
+    ..registerFactory(() => AuthBloc(sl()))
     ..registerLazySingleton(() => AuthRepo(sl()))
     ..registerLazySingleton(() => AuthDataSource(sl()));
 }

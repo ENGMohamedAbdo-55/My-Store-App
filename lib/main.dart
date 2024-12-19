@@ -24,7 +24,7 @@ void main() async {
           ),
         )
       : await Firebase.initializeApp();
-      await SharedPref().instantiatePreferences();
+      await SharedPref().instantiatePreferences(); 
       await setupInjector();
   Bloc.observer = AppBlocObserver();
   await SystemChrome.setPreferredOrientations(
