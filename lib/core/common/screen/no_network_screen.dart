@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../styles/images/app_images.dart';
 
 class NoNetworkScreen extends StatelessWidget {

@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import '../../app/upload-image/model/upload_image_response.dart';
+import '../../../features/auth/data/models/sign_up_response.dart';
 import '../../../features/auth/data/models/login_response.dart';
 import '../../../features/auth/data/models/user_role_response.dart';
 import 'package:retrofit/retrofit.dart';
@@ -12,10 +14,17 @@ const String graphql = '/graphql';
 abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
-@POST(graphql)
+  @POST(graphql)
   Future<LoginResponse> login(@Body() Map<String, dynamic> mutation);
 
-@GET('/api/v1/auth/profile')
-Future<UserRoleResponse> userRole();
+    @POST(graphql)
+  Future<SignUpResponse> signUp(
+    @Body() Map<String, dynamic> mutation,
+  );
 
+  @GET('/api/v1/auth/profile')
+  Future<UserRoleResponse> userRole();
+
+  @POST('/api/v1/files/upload')
+  Future<UploadImageResponse> uploadImage(@Body() FormData file);
 }

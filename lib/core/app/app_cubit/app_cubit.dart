@@ -1,13 +1,12 @@
-import 'dart:math';
-
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import '../../service/shared_pref/pref_keys.dart';
 import '../../service/shared_pref/shared_pref.dart';
 
-part 'app_state.dart';
 part 'app_cubit.freezed.dart';
+part 'app_state.dart';
 
 class AppCubit extends Cubit<AppState> {
   AppCubit() : super(const AppState.initial());

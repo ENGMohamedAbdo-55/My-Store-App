@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import '../models/sign_up_request_body.dart';
+import '../models/sign_up_response.dart';
 
 import '../../../../core/service/graphql/api_service.dart';
 import '../../../../core/service/graphql/graphql_queries/auth/auth_queries.dart';
@@ -29,5 +31,10 @@ class AuthDataSource {
     debugPrint('[USER ROLE] ====> ${response.userRole}');
     return response;
   }
-
+  //SignUp
+  Future<SignUpResponse> signUp({required SignUpRequestBody body}) async {
+    final response =
+        await _graphql.signUp(AuthQueries().signUpMapQuery(body: body));
+    return response;
+  }
 }

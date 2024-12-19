@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../../core/common/animation/animate_do.dart';
 import '../../../../core/common/widgets/text_app.dart';
 import '../../../../core/extensions/context_extensions.dart';
