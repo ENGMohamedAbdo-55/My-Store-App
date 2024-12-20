@@ -48,7 +48,7 @@ List<DrawerItemModel> adminDrawerList(BuildContext context) {
       page: const AddCategoriesScreen(),
     ),
     //Product
-    DrawerItemModel(
+    DrawerItemModel( 
       icon: const Icon(
         Icons.production_quantity_limits,
         color: Colors.white,
