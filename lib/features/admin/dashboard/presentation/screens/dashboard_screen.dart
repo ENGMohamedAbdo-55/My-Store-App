@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_store/core/common/widgets/admin_appbar.dart';
 import 'package:my_store/core/styles/colors/colors_dark.dart';
+import 'package:my_store/features/admin/dashboard/presentation/refactors/dashboard_body.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -14,9 +15,7 @@ class DashboardScreen extends StatelessWidget {
         title: 'Dashboard',
         backgroundColor: ColorsDark.mainColor,
       ),
-      body: Center(
-        child: Text('Dashboard Screen'),
-      ),
+      body: DashboardBody(),
     );
   }
 }
