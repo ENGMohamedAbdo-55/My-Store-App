@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/core/common/dialogs/custom_dialogs.dart';
-import 'package:my_store/core/common/widgets/text_app.dart';
-import 'package:my_store/core/extensions/context_extensions.dart';
-import 'package:my_store/core/routes/app_routs.dart';
-import 'package:my_store/core/service/shared_pref/pref_keys.dart';
-import 'package:my_store/core/service/shared_pref/shared_pref.dart';
-import 'package:my_store/core/styles/fonts/font_family_helper.dart';
-import 'package:my_store/core/styles/fonts/font_weight_helper.dart';
-import 'package:my_store/features/admin/add-categories/presentation/screens/add_categories_screen.dart';
-import 'package:my_store/features/admin/add-notification/presentation/screens/add_notification_screen.dart';
-import 'package:my_store/features/admin/add-products/presentation/screens/add_products_screen.dart';
-import 'package:my_store/features/admin/dashboard/presentation/screens/dashboard_screen.dart';
-import 'package:my_store/features/admin/users/presentation/screens/users_screen.dart';
+import '../common/dialogs/custom_dialogs.dart';
+import '../common/widgets/text_app.dart';
+import '../extensions/context_extensions.dart';
+import '../routes/app_routs.dart';
+import '../service/shared_pref/pref_keys.dart';
+import '../service/shared_pref/shared_pref.dart';
+import '../styles/fonts/font_family_helper.dart';
+import '../styles/fonts/font_weight_helper.dart';
+import '../../features/admin/add-categories/presentation/screens/add_categories_screen.dart';
+import '../../features/admin/add-notification/presentation/screens/add_notification_screen.dart';
+import '../../features/admin/add-products/presentation/screens/add_products_screen.dart';
+import '../../features/admin/dashboard/presentation/screens/dashboard_screen.dart';
+import '../../features/admin/users/presentation/screens/users_screen.dart';
 
 List<DrawerItemModel> adminDrawerList(BuildContext context) {
   return <DrawerItemModel>[

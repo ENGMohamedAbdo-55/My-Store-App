@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:my_store/features/admin/dashboard/data/models/categories_number_response.dart';
-import 'package:my_store/features/admin/dashboard/data/models/products_number_response.dart';
-import 'package:my_store/features/admin/dashboard/data/models/users_number_response.dart';
+import '../../../features/admin/dashboard/data/models/categories_number_response.dart';
+import '../../../features/admin/dashboard/data/models/products_number_response.dart';
+import '../../../features/admin/dashboard/data/models/users_number_response.dart';
 import '../../app/upload-image/model/upload_image_response.dart';
 import '../../../features/auth/data/models/sign_up_response.dart';
 import '../../../features/auth/data/models/login_response.dart';

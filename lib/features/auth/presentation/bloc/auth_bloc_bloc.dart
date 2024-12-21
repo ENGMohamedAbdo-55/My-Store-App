@@ -4,11 +4,11 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:my_store/core/service/shared_pref/pref_keys.dart';
-import 'package:my_store/core/service/shared_pref/shared_pref.dart';
-import 'package:my_store/features/auth/data/models/login_request_body.dart';
-import 'package:my_store/features/auth/data/models/sign_up_request_body.dart';
-import 'package:my_store/features/auth/data/repos/auth_repo.dart';
+import '../../../../core/service/shared_pref/pref_keys.dart';
+import '../../../../core/service/shared_pref/shared_pref.dart';
+import '../../data/models/login_request_body.dart';
+import '../../data/models/sign_up_request_body.dart';
+import '../../data/repos/auth_repo.dart';
 
 part 'auth_bloc_bloc.freezed.dart';
 part 'auth_bloc_event.dart';

@@ -1,8 +1,8 @@
-import 'package:my_store/core/service/graphql/api_result.dart';
-import 'package:my_store/features/admin/dashboard/data/data-source/dashboard_data_source.dart';
-import 'package:my_store/features/admin/dashboard/data/models/categories_number_response.dart';
-import 'package:my_store/features/admin/dashboard/data/models/products_number_response.dart';
-import 'package:my_store/features/admin/dashboard/data/models/users_number_response.dart';
+import '../../../../../core/service/graphql/api_result.dart';
+import '../data-source/dashboard_data_source.dart';
+import '../models/categories_number_response.dart';
+import '../models/products_number_response.dart';
+import '../models/users_number_response.dart';
 
 class DashboardRepo {
   DashboardRepo(this._dataSource);

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/core/common/dialogs/custom_dialogs.dart';
-import 'package:my_store/core/common/loading/loading_shimmer.dart';
-import 'package:my_store/core/common/widgets/custom_container_linear_admin.dart';
-import 'package:my_store/core/common/widgets/text_app.dart';
-import 'package:my_store/core/extensions/context_extensions.dart';
-import 'package:my_store/core/styles/fonts/font_family_helper.dart';
-import 'package:my_store/core/styles/fonts/font_weight_helper.dart';
+import '../../../../../core/common/loading/loading_shimmer.dart';
+import '../../../../../core/common/widgets/custom_container_linear_admin.dart';
+import '../../../../../core/common/widgets/text_app.dart';
+import '../../../../../core/extensions/context_extensions.dart';
+import '../../../../../core/styles/fonts/font_family_helper.dart';
+import '../../../../../core/styles/fonts/font_weight_helper.dart';
 
 class DashboardContainer extends StatelessWidget {
   const DashboardContainer({
