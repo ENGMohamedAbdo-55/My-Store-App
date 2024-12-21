@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:my_store/core/common/widgets/admin_appbar.dart';
-import 'package:my_store/core/styles/colors/colors_dark.dart';
-import 'package:my_store/core/styles/images/app_images.dart';
-import 'package:my_store/core/utils/admin_drawer_list.dart';
-import 'package:my_store/features/admin/dashboard/presentation/screens/dashboard_screen.dart';
+import '../../../../../core/common/widgets/admin_appbar.dart';
+import '../../../../../core/styles/colors/colors_dark.dart';
+import '../../../../../core/styles/images/app_images.dart';
+import '../../../../../core/utils/admin_drawer_list.dart';
+import '../../../dashboard/presentation/screens/dashboard_screen.dart';
 
 class HomeAdmin extends StatefulWidget {
   const HomeAdmin({super.key});

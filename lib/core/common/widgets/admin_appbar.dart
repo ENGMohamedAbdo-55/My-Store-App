@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:my_store/core/common/widgets/custom_linear_button.dart';
-import 'package:my_store/core/common/widgets/text_app.dart';
-import 'package:my_store/core/extensions/context_extensions.dart';
-import 'package:my_store/core/styles/fonts/font_family_helper.dart';
+import 'text_app.dart';
+import '../../extensions/context_extensions.dart';
+import '../../styles/fonts/font_family_helper.dart';
 
 class AdminAppBar extends StatelessWidget implements PreferredSizeWidget {
   const AdminAppBar({

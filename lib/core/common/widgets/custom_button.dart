@@ -1,10 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/core/common/widgets/text_app.dart';
-import 'package:my_store/core/extensions/context_extensions.dart';
-import 'package:my_store/core/styles/fonts/font_family_helper.dart';
-import 'package:my_store/core/styles/fonts/font_weight_helper.dart';
+import 'text_app.dart';
+import '../../extensions/context_extensions.dart';
+import '../../styles/fonts/font_family_helper.dart';
+import '../../styles/fonts/font_weight_helper.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
