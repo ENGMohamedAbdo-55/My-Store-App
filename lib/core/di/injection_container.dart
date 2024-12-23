@@ -8,7 +8,7 @@ import 'package:my_store/core/service/graphql/api_service.dart';
 import 'package:my_store/core/service/graphql/dio_factory.dart';
 import 'package:my_store/features/admin/add-categories/data/data-source/categories_admin_data_source.dart';
 import 'package:my_store/features/admin/add-categories/data/repos/categories_admin_repos.dart';
-import 'package:my_store/features/admin/add-categories/presentation/bloc/get-all-admin-categories/get_all_admin_categories_bloc.dart';
+import 'package:my_store/features/admin/add-categories/presentation/bloc/bloc/get_all_admin_categories_bloc.dart';
 import 'package:my_store/features/admin/dashboard/data/data-source/dashboard_data_source.dart';
 import 'package:my_store/features/admin/dashboard/data/repos/dashboard_repo.dart';
 import 'package:my_store/features/admin/dashboard/presentation/bloc/categories-number/categories_number_bloc.dart';
