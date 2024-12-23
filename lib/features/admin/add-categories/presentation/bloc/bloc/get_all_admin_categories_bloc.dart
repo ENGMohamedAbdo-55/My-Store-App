@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:my_store/features/admin/add-categories/data/models/get_all_categories_response.dart';
-import 'package:my_store/features/admin/add-categories/data/repos/categories_admin_repos.dart';
+import '../../../data/models/get_all_categories_response.dart';
+import '../../../data/repos/categories_admin_repos.dart';
 
 part 'get_all_admin_categories_event.dart';
 part 'get_all_admin_categories_state.dart';

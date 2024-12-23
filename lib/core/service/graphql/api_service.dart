@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:my_store/features/admin/add-categories/data/models/get_all_categories_response.dart';
+import '../../../features/admin/add-categories/data/models/get_all_categories_response.dart';
 import '../../../features/admin/dashboard/data/models/categories_number_response.dart';
 import '../../../features/admin/dashboard/data/models/products_number_response.dart';
 import '../../../features/admin/dashboard/data/models/users_number_response.dart';

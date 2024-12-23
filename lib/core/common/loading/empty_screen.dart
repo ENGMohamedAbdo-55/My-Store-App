@@ -1,9 +1,9 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/core/common/widgets/text_app.dart';
-import 'package:my_store/core/extensions/context_extensions.dart';
-import 'package:my_store/core/styles/fonts/font_weight_helper.dart';
-import 'package:my_store/core/styles/images/app_images.dart';
+import '../widgets/text_app.dart';
+import '../../extensions/context_extensions.dart';
+import '../../styles/fonts/font_weight_helper.dart';
+import '../../styles/images/app_images.dart';
 
 class EmptyScreen extends StatelessWidget {
   const EmptyScreen({super.key, this.title = 'No Data'});

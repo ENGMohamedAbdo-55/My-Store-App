@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_store/core/styles/colors/colors_dark.dart';
+import '../../styles/colors/colors_dark.dart';
 
 class CustomBottomSheet {
   const CustomBottomSheet._();

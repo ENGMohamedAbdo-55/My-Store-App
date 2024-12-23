@@ -1,7 +1,7 @@
-import 'package:my_store/core/service/graphql/api_result.dart';
-import 'package:my_store/core/utils/app_strings.dart';
-import 'package:my_store/features/admin/add-categories/data/data-source/categories_admin_data_source.dart';
-import 'package:my_store/features/admin/add-categories/data/models/get_all_categories_response.dart';
+import '../../../../../core/service/graphql/api_result.dart';
+import '../../../../../core/utils/app_strings.dart';
+import '../data-source/categories_admin_data_source.dart';
+import '../models/get_all_categories_response.dart';
 
 class CategoriesAdminRepos {
   CategoriesAdminRepos(this._dataSource);

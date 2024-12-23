@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/core/common/widgets/custom_button.dart';
-import 'package:my_store/core/common/widgets/custom_text_field.dart';
-import 'package:my_store/core/common/widgets/text_app.dart';
-import 'package:my_store/core/extensions/context_extensions.dart';
-import 'package:my_store/core/styles/colors/colors_dark.dart';
-import 'package:my_store/core/styles/fonts/font_family_helper.dart';
-import 'package:my_store/core/styles/fonts/font_weight_helper.dart';
-import 'package:my_store/features/admin/add-categories/presentation/widgets/create/add_category_upload_image.dart';
+import '../../../../../../core/common/widgets/custom_button.dart';
+import '../../../../../../core/common/widgets/custom_text_field.dart';
+import '../../../../../../core/common/widgets/text_app.dart';
+import '../../../../../../core/extensions/context_extensions.dart';
+import '../../../../../../core/styles/colors/colors_dark.dart';
+import '../../../../../../core/styles/fonts/font_family_helper.dart';
+import '../../../../../../core/styles/fonts/font_weight_helper.dart';
+import 'add_category_upload_image.dart';
 
 class CreateCategoryBottomSheet extends StatefulWidget {
   const CreateCategoryBottomSheet({super.key});

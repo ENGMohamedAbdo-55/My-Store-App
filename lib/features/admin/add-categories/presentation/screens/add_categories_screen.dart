@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_store/core/common/widgets/admin_appbar.dart';
-import 'package:my_store/core/di/injection_container.dart';
-import 'package:my_store/core/styles/colors/colors_dark.dart';
-import 'package:my_store/features/admin/add-categories/presentation/bloc/bloc/get_all_admin_categories_bloc.dart';
-import 'package:my_store/features/admin/add-categories/presentation/refactor/add_categories_screen_body.dart';
+import '../../../../../core/common/widgets/admin_appbar.dart';
+import '../../../../../core/di/injection_container.dart';
+import '../../../../../core/styles/colors/colors_dark.dart';
+import '../bloc/bloc/get_all_admin_categories_bloc.dart';
+import '../refactor/add_categories_screen_body.dart';
 
 class AddCategoriesScreen extends StatelessWidget {
   const AddCategoriesScreen({super.key});
