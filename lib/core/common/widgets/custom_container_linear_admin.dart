@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../styles/colors/colors_dark.dart';
+import 'package:my_store/core/styles/colors/colors_dark.dart';
 
 class CustomContainerLinearAdmin extends StatelessWidget {
   const CustomContainerLinearAdmin({
