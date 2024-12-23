@@ -1,6 +1,12 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_store/core/common/loading/empty_screen.dart';
+import 'package:my_store/core/common/loading/loading_shimmer.dart';
 import 'package:my_store/core/styles/colors/colors_dark.dart';
+import 'package:my_store/features/admin/add-categories/presentation/bloc/bloc/get_all_admin_categories_bloc.dart';
 import 'package:my_store/features/admin/add-categories/presentation/widgets/create/add_categories_item.dart';
 import 'package:my_store/features/admin/add-categories/presentation/widgets/create/create_categories_button.dart';
 
@@ -25,7 +31,11 @@ class AddCategoriesScreenBody extends StatelessWidget {
           Expanded(
             child: RefreshIndicator(
               color: ColorsDark.blueDark,
-              onRefresh: () async {},
+              onRefresh: () async {
+                context.read<GetAllAdminCategoriesBloc>().add(
+                      const GetAllAdminCategoriesEvent.fetchAdminCategories(),
+                    );
+              },
               child: CustomScrollView(
                 slivers: [
                   SliverToBoxAdapter(
@@ -34,22 +44,60 @@ class AddCategoriesScreenBody extends StatelessWidget {
                     ),
                   ),
                   SliverToBoxAdapter(
-                    child: ListView.separated(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemBuilder: (context, index) {
-                        return const AddCategoriesItem(
-                          name: 'name',
-                          image: 'image',
-                          categoryId: 'categoryId',
+                    child: BlocBuilder<GetAllAdminCategoriesBloc,
+                        GetAllAdminCategoriesState>(
+                      builder: (context, state) {
+                        return state.when(
+                          loading: () {
+                            return ListView.separated(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemBuilder: (context, index) {
+                                return LoadingShimmer(
+                                  height: 130.h,
+                                  borderRadius: 15,
+                                );
+                              },
+                              separatorBuilder: (context, index) {
+                                return SizedBox(
+                                  height: 15.h,
+                                );
+                              },
+                              itemCount: 4,
+                            );
+                          },
+                          success: (list) {
+                            return ListView.separated(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemBuilder: (context, index) {
+                                return AddCategoriesItem(
+                                  name: list.categoriesList[index].name ?? '',
+                                  image: list.categoriesList[index].image ?? '',
+                                  categoryId:
+                                      list.categoriesList[index].id ?? '',
+                                );
+                              },
+                              separatorBuilder: (context, index) {
+                                return SizedBox(
+                                  height: 15.h,
+                                );
+                              },
+                              itemCount: list.categoriesList.length,
+                            );
+                          },
+                          empty: () {
+                            return const EmptyScreen(
+                              title: 'No Categories',
+                            );
+                          },
+                          error: (error) {
+                            return EmptyScreen(
+                              title: error,
+                            );
+                          },
                         );
                       },
-                      separatorBuilder: (context, index) {
-                        return SizedBox(
-                          height: 15.h,
-                        );
-                      },
-                      itemCount: 10,
                     ),
                   ),
                 ],
