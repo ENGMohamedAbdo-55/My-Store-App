@@ -7,7 +7,7 @@ import '../../../../../../core/extensions/context_extensions.dart';
 import '../../../../../../core/styles/colors/colors_dark.dart';
 import '../../../../../../core/styles/fonts/font_family_helper.dart';
 import '../../../../../../core/styles/fonts/font_weight_helper.dart';
-import '../create/add_category_upload_image.dart';
+
 import 'update_categories_image.dart';
 
 class UpdateCategoriesBottomSheet extends StatefulWidget {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../core/common/bottom-sheet/custom_bottom_sheet.dart';
-import '../../../../../../core/common/dialogs/custom_dialogs.dart';
 import '../../../../../../core/common/widgets/custom_button.dart';
 import '../../../../../../core/common/widgets/text_app.dart';
 import '../../../../../../core/extensions/context_extensions.dart';

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:my_store/features/admin/add-categories/presentation/bloc/create-category/create_category_bloc.dart';
 import '../app/app_cubit/app_cubit.dart';
 import '../app/upload-image/cubit/upload_image_cubit.dart';
 import '../app/upload-image/data-source/upload_image_data_source.dart';
@@ -8,7 +9,7 @@ import '../service/graphql/api_service.dart';
 import '../service/graphql/dio_factory.dart';
 import '../../features/admin/add-categories/data/data-source/categories_admin_data_source.dart';
 import '../../features/admin/add-categories/data/repos/categories_admin_repos.dart';
-import '../../features/admin/add-categories/presentation/bloc/bloc/get_all_admin_categories_bloc.dart';
+import '../../features/admin/add-categories/presentation/bloc/get-all-categories/get_all_admin_categories_bloc.dart';
 import '../../features/admin/dashboard/data/data-source/dashboard_data_source.dart';
 import '../../features/admin/dashboard/data/repos/dashboard_repo.dart';
 import '../../features/admin/dashboard/presentation/bloc/categories-number/categories_number_bloc.dart';
@@ -60,5 +61,6 @@ Future<void> _initCategoriesAdmin() async {
   sl
     ..registerLazySingleton(() => CategoriesAdminRepos(sl()))
     ..registerLazySingleton(() => CategoriesAdminDataSource(sl()))
-    ..registerFactory(() => GetAllAdminCategoriesBloc(sl()));
+    ..registerFactory(() => GetAllAdminCategoriesBloc(sl()))
+    ..registerFactory(() => CreateCategoryBloc(sl()));
 }

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_store/features/admin/add-categories/presentation/bloc/create-category/create_category_bloc.dart';
 import '../../../../../core/common/widgets/admin_appbar.dart';
 import '../../../../../core/di/injection_container.dart';
 import '../../../../../core/styles/colors/colors_dark.dart';
-import '../bloc/bloc/get_all_admin_categories_bloc.dart';
+import '../bloc/get-all-categories/get_all_admin_categories_bloc.dart';
 import '../refactor/add_categories_screen_body.dart';
 
 class AddCategoriesScreen extends StatelessWidget {
@@ -19,6 +20,7 @@ class AddCategoriesScreen extends StatelessWidget {
               const GetAllAdminCategoriesEvent.fetchAdminCategories(),
             ),
         ),
+        BlocProvider(create: (context) => sl<CreateCategoryBloc>()),
       ],
       child: const Scaffold(
         appBar: AdminAppBar(
