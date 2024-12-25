@@ -20,7 +20,7 @@ class CategoriesAdminRepos {
       return const ApiResult.failure(errMessage);
     }
   }
-  Future<ApiResult<CreateCategoryResponse>> createCategory(CreateCategoryRequestBody body) async {
+  Future<ApiResult<CreateCategoryResponse>> createCategory({required CreateCategoryRequestBody body}) async {
     try {
       final response = await _dataSource.createCategories(body);
       return ApiResult.success(response);

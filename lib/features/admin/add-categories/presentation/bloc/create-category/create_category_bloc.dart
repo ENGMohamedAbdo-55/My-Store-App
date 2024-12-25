@@ -13,9 +13,21 @@ class CreateCategoryBloc
   CreateCategoryBloc(this._repos) : super(_Initial()) {
     on<NewCreateCategoryEvent>(createCategory);
   }
-final CategoriesAdminRepos _repos;
+  final CategoriesAdminRepos _repos;
   FutureOr<void> createCategory(
-    CreateCategoryEvent event,
+    NewCreateCategoryEvent event,
     Emitter<CreateCategoryState> emit,
-  ) {}
+  ) async {
+    
+    emit(const CreateCategoryState.loading());
+    final result = await _repos.createCategory(body: event.body);
+    result.when(
+      success: (response) {
+        emit(CreateCategoryState.success());
+      },
+      failure: (error) {
+        emit(CreateCategoryState.error(error: error));
+      },
+    );
+   }
 }

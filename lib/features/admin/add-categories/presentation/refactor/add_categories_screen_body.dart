@@ -5,7 +5,7 @@ import '../../../../../core/common/loading/empty_screen.dart';
 import '../../../../../core/common/loading/loading_shimmer.dart';
 import '../../../../../core/styles/colors/colors_dark.dart';
 import '../bloc/get-all-categories/get_all_admin_categories_bloc.dart';
-import '../widgets/create/add_categories_item.dart';
+import '../widgets/add_categories_item.dart';
 import '../widgets/create/create_categories_button.dart';
 
 class AddCategoriesScreenBody extends StatelessWidget {
@@ -31,7 +31,9 @@ class AddCategoriesScreenBody extends StatelessWidget {
               color: ColorsDark.blueDark,
               onRefresh: () async {
                 context.read<GetAllAdminCategoriesBloc>().add(
-                      const GetAllAdminCategoriesEvent.fetchAdminCategories(),
+                      const GetAllAdminCategoriesEvent.fetchAdminCategories(
+                        isNotLoading: true,
+                      ),
                     );
               },
               child: CustomScrollView(

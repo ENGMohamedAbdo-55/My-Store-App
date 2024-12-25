@@ -1,12 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../../core/common/bottom-sheet/custom_bottom_sheet.dart';
-import '../../../../../../core/common/widgets/custom_container_linear_admin.dart';
-import '../../../../../../core/common/widgets/text_app.dart';
-import '../../../../../../core/extensions/context_extensions.dart';
-import '../../../../../../core/styles/fonts/font_family_helper.dart';
-import '../update/update_categories_bottom_sheet_.dart';
+import '../../../../../core/common/bottom-sheet/custom_bottom_sheet.dart';
+import '../../../../../core/common/widgets/custom_container_linear_admin.dart';
+import '../../../../../core/common/widgets/text_app.dart';
+import '../../../../../core/extensions/context_extensions.dart';
+import '../../../../../core/styles/fonts/font_family_helper.dart';
+import 'update/update_categories_bottom_sheet_.dart';
 
 class AddCategoriesItem extends StatelessWidget {
   const AddCategoriesItem({

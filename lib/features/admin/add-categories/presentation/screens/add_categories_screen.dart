@@ -17,10 +17,11 @@ class AddCategoriesScreen extends StatelessWidget {
         BlocProvider(
           create: (context) => sl<GetAllAdminCategoriesBloc>()
             ..add(
-              const GetAllAdminCategoriesEvent.fetchAdminCategories(),
+               GetAllAdminCategoriesEvent.fetchAdminCategories(
+                  isNotLoading: true,
+               ),
             ),
         ),
-        BlocProvider(create: (context) => sl<CreateCategoryBloc>()),
       ],
       child: const Scaffold(
         appBar: AdminAppBar(

@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_store/core/app/upload-image/cubit/upload_image_cubit.dart';
+import 'package:my_store/core/common/toast/show_toast.dart';
+import 'package:my_store/core/language/lang_keys.dart';
+import 'package:my_store/features/admin/add-categories/data/models/create_category_request_body.dart';
+import 'package:my_store/features/admin/add-categories/presentation/bloc/create-category/create_category_bloc.dart';
 import '../../../../../../core/common/widgets/custom_button.dart';
 import '../../../../../../core/common/widgets/custom_text_field.dart';
 import '../../../../../../core/common/widgets/text_app.dart';
@@ -61,14 +67,26 @@ class _CreateCategoryBottomSheetState extends State<CreateCategoryBottomSheet> {
                     fontWeight: FontWeightHelper.medium,
                   ),
                 ),
-                CustomButton(
-                  onPressed: () {},
-                  lastRadius: 10,
-                  threeRadius: 10,
-                  text: 'Remove',
-                  width: 120.w,
-                  height: 35.h,
-                  backgroundColor: Colors.red,
+                BlocBuilder<UploadImageCubit, UploadImageState>(
+                  builder: (context, state) {
+                    if (context
+                        .read<UploadImageCubit>()
+                        .getImageUrl
+                        .isNotEmpty) {
+                      return SizedBox.shrink();
+                    }
+                    return CustomButton(
+                      onPressed: () {
+                        context.read<UploadImageCubit>().removeImage();
+                      },
+                      lastRadius: 10,
+                      threeRadius: 10,
+                      text: 'Remove',
+                      width: 120.w,
+                      height: 35.h,
+                      backgroundColor: Colors.red,
+                    );
+                  },
                 ),
               ],
             ),
@@ -104,15 +122,56 @@ class _CreateCategoryBottomSheetState extends State<CreateCategoryBottomSheet> {
             SizedBox(
               height: 20.h,
             ),
-            CustomButton(
-              onPressed: () {},
-              lastRadius: 20,
-              threeRadius: 20,
-              text: 'Create a new category',
-              textColor: ColorsDark.blueDark,
-              width: MediaQuery.of(context).size.width,
-              height: 50.h,
-              backgroundColor: ColorsDark.white,
+            BlocConsumer<CreateCategoryBloc, CreateCategoryState>(
+              listener: (context, state) {
+                state.whenOrNull(
+                  success: () {
+                    context.pop();
+                    ShowToast.showToastErrorTop(
+                      message:
+                          '${categoryNameController.text}Created Successfully',
+                    );
+                  },
+                  error: (error) {
+                    ShowToast.showToastErrorTop(
+                      message: error,
+                    );
+                  },
+                );
+              },
+              builder: (context, state) {
+                return state.maybeWhen(
+                  loading: () {
+                    return Container(
+                      height: 50.h,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        color: ColorsDark.white,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Center(
+                        child: CircularProgressIndicator(
+                          color: ColorsDark.blueDark,
+                        ),
+                      ),
+                    );
+                  },
+                  orElse: () {
+                    return CustomButton(
+                      onPressed: () {
+                        void validCreateCategory() {}
+                      },
+                      lastRadius: 20,
+                      threeRadius: 20,
+                      text: 'Create a new category',
+                      textColor: ColorsDark.blueDark,
+                      width: MediaQuery.of(context).size.width,
+                      height: 50.h,
+                      backgroundColor: ColorsDark.white,
+                    );
+                  },
+                );
+              },
             ),
             SizedBox(
               height: 20.h,
@@ -121,5 +180,25 @@ class _CreateCategoryBottomSheetState extends State<CreateCategoryBottomSheet> {
         ),
       ),
     );
+  }
+
+  void validCreateCategory(BuildContext context) {
+    if (formKey.currentState!.validate() ||
+        context.read<UploadImageCubit>().getImageUrl.isEmpty) {
+      if (context.read<UploadImageCubit>().getImageUrl.isEmpty) {
+        ShowToast.showToastErrorTop(
+          message: context.translate(LangKeys.validPickImage),
+        );
+      } else {
+        context.read<CreateCategoryBloc>().add(
+              CreateCategoryEvent.createCategory(
+                body: CreateCategoryRequestBody(
+                  name: categoryNameController.text.trim(),
+                  image: context.read<UploadImageCubit>().getImageUrl,
+                ),
+              ),
+            );
+      }
+    }
   }
 }

@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_store/core/app/upload-image/cubit/upload_image_cubit.dart';
+import 'package:my_store/core/di/injection_container.dart';
+import 'package:my_store/features/admin/add-categories/presentation/bloc/create-category/create_category_bloc.dart';
+import 'package:my_store/features/admin/add-categories/presentation/bloc/get-all-categories/get_all_admin_categories_bloc.dart';
 import '../../../../../../core/common/bottom-sheet/custom_bottom_sheet.dart';
 import '../../../../../../core/common/widgets/custom_button.dart';
 import '../../../../../../core/common/widgets/text_app.dart';
@@ -25,19 +30,45 @@ class CreateCategoriesButton extends StatelessWidget {
             fontWeight: FontWeightHelper.medium,
           ),
         ),
-        CustomButton(
-          onPressed: () {
-            CustomBottomSheet.showCustomBottomSheet(
-              context: context,
-              widget: const CreateCategoryBottomSheet(),
-            );
-          },
-          lastRadius: 10,
-          threeRadius: 10,
-          backgroundColor: ColorsDark.blueDark,
-          text: 'Add',
-          width: 90.w,
-          height: 35.h,
+        MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => sl<CreateCategoryBloc>(),
+            ),
+            BlocProvider(
+              create: (context) => sl<UploadImageCubit>(),
+            ),
+          ],
+          child: CustomButton(
+            onPressed: () {
+              CustomBottomSheet.showCustomBottomSheet(
+                context: context,
+                widget: MultiBlocProvider(
+                  providers: [
+                    BlocProvider(create: (context) => sl<CreateCategoryBloc>(),),
+                    BlocProvider(create: (context) => sl<UploadImageCubit>(),),
+                  
+                  ],
+                  child: const CreateCategoryBottomSheet(),
+                
+                  ),
+                  whenComplete: () {
+                    context.read<GetAllAdminCategoriesBloc>().add(
+                      GetAllAdminCategoriesEvent.fetchAdminCategories(
+                        isNotLoading: false,
+                      ),
+                    );
+                  },
+              );
+            
+            },
+            lastRadius: 10,
+            threeRadius: 10,
+            backgroundColor: ColorsDark.blueDark,
+            text: 'Add',
+            width: 90.w,
+            height: 35.h,
+          ),
         ),
       ],
     );
