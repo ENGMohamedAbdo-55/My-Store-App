@@ -1,25 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import '../../features/admin/add-categories/presentation/bloc/create-category/create_category_bloc.dart';
+import '../../features/admin/add-categories/presentation/bloc/delete-category/delete_category_bloc.dart';
+import '../../features/admin/add-categories/presentation/bloc/update-category/update_categories_bloc.dart';
+import '../app/app_cubit/app_cubit.dart';
+import '../app/upload-image/cubit/upload_image_cubit.dart';
+import '../app/upload-image/data-source/upload_image_data_source.dart';
+import '../app/upload-image/repo/upload_image_repo.dart';
+import '../service/graphql/api_service.dart';
+import '../service/graphql/dio_factory.dart';
+import '../../features/admin/add-categories/data/data-source/categories_admin_data_source.dart';
+import '../../features/admin/add-categories/data/repos/categories_admin_repos.dart';
+import '../../features/admin/add-categories/presentation/bloc/get-all-categories/get_all_admin_categories_bloc.dart';
 import '../../features/admin/dashboard/data/data-source/dashboard_data_source.dart';
 import '../../features/admin/dashboard/data/repos/dashboard_repo.dart';
 import '../../features/admin/dashboard/presentation/bloc/categories-number/categories_number_bloc.dart';
 import '../../features/admin/dashboard/presentation/bloc/products_number/products_number_bloc.dart';
 import '../../features/admin/dashboard/presentation/bloc/usres-number/users_number_bloc.dart';
-import '../../features/auth/presentation/bloc/auth_bloc_bloc.dart';
-import '../app/upload-image/cubit/upload_image_cubit.dart';
-import '../app/upload-image/data-source/upload_image_data_source.dart';
-import '../app/upload-image/repo/upload_image_repo.dart';
 import '../../features/auth/data/data-source/auth_data_source.dart';
 import '../../features/auth/data/repos/auth_repo.dart';
-import '../app/app_cubit/app_cubit.dart';
-import '../service/graphql/api_service.dart';
-import '../service/graphql/dio_factory.dart';
+import '../../features/auth/presentation/bloc/auth_bloc_bloc.dart';
 
 final sl = GetIt.instance;
 Future<void> setupInjector() async {
   await _initCore();
   await _initAuth();
   await _initDashboard();
+  await _initCategoriesAdmin();
 }
 
 Future<void> _initCore() async {
@@ -50,4 +57,14 @@ Future<void> _initDashboard() async {
     ..registerFactory(() => ProductsNumberBloc(sl()))
     ..registerFactory(() => CategoriesNumberBloc(sl()))
     ..registerFactory(() => UsersNumberBloc(sl()));
+}
+Future<void> _initCategoriesAdmin() async {
+
+  sl
+    ..registerLazySingleton(() => CategoriesAdminRepos(sl()))
+    ..registerLazySingleton(() => CategoriesAdminDataSource(sl()))
+    ..registerFactory(() => GetAllAdminCategoriesBloc(sl()))
+    ..registerFactory(() => CreateCategoryBloc(sl()))
+    ..registerFactory(() => DeleteCategoryBloc(sl()))
+    ..registerFactory(() => UpdateCategoriesBloc(sl()));
 }

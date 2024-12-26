@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../../core/common/animation/animate_do.dart';
 import '../../../../core/common/widgets/text_app.dart';
 import '../../../../core/extensions/context_extensions.dart';
@@ -8,7 +9,6 @@ import '../../../../core/routes/app_routs.dart';
 import '../../../../core/styles/fonts/font_weight_helper.dart';
 import '../widgets/auth_title_info.dart';
 import '../widgets/dark_and_lang_buttons.dart';
-
 import '../widgets/signup/sign_up_button.dart';
 import '../widgets/signup/sign_up_text_form.dart';
 import '../widgets/signup/user_avatar_image.dart';
