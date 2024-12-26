@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_store/features/admin/add-categories/presentation/bloc/create-category/create_category_bloc.dart';
+import 'package:my_store/features/admin/add-categories/presentation/bloc/delete-category/delete_category_bloc.dart';
 import '../../../../../core/common/widgets/admin_appbar.dart';
 import '../../../../../core/di/injection_container.dart';
 import '../../../../../core/styles/colors/colors_dark.dart';
@@ -17,10 +18,13 @@ class AddCategoriesScreen extends StatelessWidget {
         BlocProvider(
           create: (context) => sl<GetAllAdminCategoriesBloc>()
             ..add(
-               GetAllAdminCategoriesEvent.fetchAdminCategories(
-                  isNotLoading: true,
-               ),
+              GetAllAdminCategoriesEvent.fetchAdminCategories(
+                isNotLoading: true,
+              ),
             ),
+        ),
+        BlocProvider(
+          create: (context) => sl<DeleteCategoryBloc>(),
         ),
       ],
       child: const Scaffold(

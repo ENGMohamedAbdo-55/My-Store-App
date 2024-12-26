@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_store/features/admin/add-categories/presentation/widgets/delete/delete_category_widget.dart';
 import '../../../../../core/common/bottom-sheet/custom_bottom_sheet.dart';
 import '../../../../../core/common/widgets/custom_container_linear_admin.dart';
 import '../../../../../core/common/widgets/text_app.dart';
@@ -46,14 +47,7 @@ class AddCategoriesItem extends StatelessWidget {
                 const Spacer(),
                 Row(
                   children: [
-                    InkWell(
-                      onTap: () {},
-                      child: const Icon(
-                        Icons.delete,
-                        color: Colors.red,
-                        size: 25,
-                      ),
-                    ),
+                    DeleteCategoriesWidget(categoryId: categoryId,),
                     SizedBox(
                       width: 20.w,
                     ),
@@ -93,3 +87,4 @@ class AddCategoriesItem extends StatelessWidget {
     );
   }
 }
+

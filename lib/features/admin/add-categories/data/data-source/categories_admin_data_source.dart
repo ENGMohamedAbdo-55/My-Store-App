@@ -23,4 +23,19 @@ class CategoriesAdminDataSource {
     );
     return response;
   }
+  //Delete category
+  Future<void> deleteCategory(String categoryId) async {
+    final response = await _graphQl.deleteCategory(
+      CategoriesQueries().deleteMapQuery(categoryId: categoryId),
+    );
+    return response;
+  }
+
+//Update category
+  // Future<void> updateCategory(UpdateCategoryRequestBody body) async {
+  //   final response = await _graphql.updateCategory(
+  //     CategoriesQueries().updateMapQuery(body: body),
+  //   );
+  //   return response;
+  // }
 }

@@ -46,20 +46,20 @@ class CategoriesQueries {
     };
   }
 
-  // Map<String, dynamic> deleteMapQuery({
-  //   required String categoryId,
-  // }) {
-  //   return {
-  //     'query': r'''
-  //           mutation DeleteCategory($categoryId: ID!) {
-  //             deleteCategory(id: $categoryId)
-  //           }
-  //     ''',
-  //     'variables': {
-  //       'categoryId': categoryId,
-  //     },
-  //   };
-  // }
+  Map<String, dynamic> deleteMapQuery({
+    required String categoryId,
+  }) {
+    return {
+      'query': r'''
+            mutation DeleteCategory($categoryId: ID!) {
+              deleteCategory(id: $categoryId)
+            }
+      ''',
+      'variables': {
+        'categoryId': categoryId,
+      },
+    };
+  }
 
   // Map<String, dynamic> updateMapQuery({
   //   required UpdateCategoryRequestBody body,

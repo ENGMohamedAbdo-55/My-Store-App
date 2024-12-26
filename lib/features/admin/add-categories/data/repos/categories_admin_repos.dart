@@ -28,4 +28,27 @@ class CategoriesAdminRepos {
       return const ApiResult.failure(errMessage);
     }
   }
+    // Delete Category
+  Future<ApiResult<void>> deleteCategory({
+    required String categoryId,
+  }) async {
+    try {
+      final response = await _dataSource.deleteCategory(categoryId);
+      return ApiResult.success(response);
+    } catch (e) {
+      return const ApiResult.failure(errMessage);
+    }
+  }
+
+  // // Update Category
+  // Future<ApiResult<void>> updateCategory({
+  //   required UpdateCategoryRequestBody body,
+  // }) async {
+  //   try {
+  //     final response = await _dataSource.updateCategory(body);
+  //     return ApiResult.success(response);
+  //   } catch (e) {
+  //     return const ApiResult.failure(errorMessage);
+  //   }
+  // }
 }
