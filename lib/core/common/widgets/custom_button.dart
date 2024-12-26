@@ -1,10 +1,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'text_app.dart';
+
 import '../../extensions/context_extensions.dart';
 import '../../styles/fonts/font_family_helper.dart';
 import '../../styles/fonts/font_weight_helper.dart';
+import 'text_app.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({

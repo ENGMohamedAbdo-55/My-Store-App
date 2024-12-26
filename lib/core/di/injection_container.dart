@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:my_store/features/admin/add-categories/presentation/bloc/create-category/create_category_bloc.dart';
-import 'package:my_store/features/admin/add-categories/presentation/bloc/delete-category/delete_category_bloc.dart';
+import '../../features/admin/add-categories/presentation/bloc/create-category/create_category_bloc.dart';
+import '../../features/admin/add-categories/presentation/bloc/delete-category/delete_category_bloc.dart';
+import '../../features/admin/add-categories/presentation/bloc/update-category/update_categories_bloc.dart';
 import '../app/app_cubit/app_cubit.dart';
 import '../app/upload-image/cubit/upload_image_cubit.dart';
 import '../app/upload-image/data-source/upload_image_data_source.dart';
@@ -64,5 +65,6 @@ Future<void> _initCategoriesAdmin() async {
     ..registerLazySingleton(() => CategoriesAdminDataSource(sl()))
     ..registerFactory(() => GetAllAdminCategoriesBloc(sl()))
     ..registerFactory(() => CreateCategoryBloc(sl()))
-    ..registerFactory(() => DeleteCategoryBloc(sl()));
+    ..registerFactory(() => DeleteCategoryBloc(sl()))
+    ..registerFactory(() => UpdateCategoriesBloc(sl()));
 }

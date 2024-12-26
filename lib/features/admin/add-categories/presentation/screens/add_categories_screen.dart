@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_store/features/admin/add-categories/presentation/bloc/create-category/create_category_bloc.dart';
-import 'package:my_store/features/admin/add-categories/presentation/bloc/delete-category/delete_category_bloc.dart';
+import '../bloc/delete-category/delete_category_bloc.dart';
 import '../../../../../core/common/widgets/admin_appbar.dart';
 import '../../../../../core/di/injection_container.dart';
 import '../../../../../core/styles/colors/colors_dark.dart';

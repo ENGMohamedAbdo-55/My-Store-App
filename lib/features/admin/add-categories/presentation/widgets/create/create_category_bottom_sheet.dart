@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/core/app/upload-image/cubit/upload_image_cubit.dart';
-import 'package:my_store/core/common/toast/show_toast.dart';
-import 'package:my_store/core/language/lang_keys.dart';
-import 'package:my_store/features/admin/add-categories/data/models/create_category_request_body.dart';
-import 'package:my_store/features/admin/add-categories/presentation/bloc/create-category/create_category_bloc.dart';
+import '../../../../../../core/app/upload-image/cubit/upload_image_cubit.dart';
+import '../../../../../../core/common/toast/show_toast.dart';
+import '../../../../../../core/language/lang_keys.dart';
+import '../../../data/models/create_category_request_body.dart';
+import '../../bloc/create-category/create_category_bloc.dart';
 import '../../../../../../core/common/widgets/custom_button.dart';
 import '../../../../../../core/common/widgets/custom_text_field.dart';
 import '../../../../../../core/common/widgets/text_app.dart';

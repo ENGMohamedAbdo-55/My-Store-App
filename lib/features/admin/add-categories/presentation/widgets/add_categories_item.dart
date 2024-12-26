@@ -1,7 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/features/admin/add-categories/presentation/widgets/delete/delete_category_widget.dart';
+import '../../../../../core/app/upload-image/cubit/upload_image_cubit.dart';
+import '../../../../../core/di/injection_container.dart';
+import '../bloc/create-category/create_category_bloc.dart';
+import '../bloc/get-all-categories/get_all_admin_categories_bloc.dart';
+import 'delete/delete_category_widget.dart';
 import '../../../../../core/common/bottom-sheet/custom_bottom_sheet.dart';
 import '../../../../../core/common/widgets/custom_container_linear_admin.dart';
 import '../../../../../core/common/widgets/text_app.dart';
@@ -47,16 +52,15 @@ class AddCategoriesItem extends StatelessWidget {
                 const Spacer(),
                 Row(
                   children: [
-                    DeleteCategoriesWidget(categoryId: categoryId,),
+                    DeleteCategoriesWidget(
+                      categoryId: categoryId,
+                    ),
                     SizedBox(
                       width: 20.w,
                     ),
                     InkWell(
                       onTap: () {
-                        CustomBottomSheet.showCustomBottomSheet(
-                          context: context,
-                          widget: const UpdateCategoriesBottomSheet(),
-                        );
+                        _updateCategoryBottomSheet(context);
                       },
                       child: const Icon(
                         Icons.edit,
@@ -86,5 +90,31 @@ class AddCategoriesItem extends StatelessWidget {
       ),
     );
   }
-}
 
+  void _updateCategoryBottomSheet(BuildContext context) {
+     CustomBottomSheet.showCustomBottomSheet(
+      context: context,
+      widget: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => sl<CreateCategoryBloc>(),
+          ),
+          BlocProvider(
+            create: (context) => sl<UploadImageCubit>(),
+          ),
+        ],
+        child: UpdateCategoriesBottomSheet(
+          categoryId: categoryId,
+          categoryName: name,
+          imageUrl: image,
+        ),
+      ),
+      whenComplete: () {
+        context.read<GetAllAdminCategoriesBloc>().add(
+              GetAllAdminCategoriesEvent.fetchAdminCategories(
+          isNotLoading: false
+        ),);
+      },
+    );
+  }
+}

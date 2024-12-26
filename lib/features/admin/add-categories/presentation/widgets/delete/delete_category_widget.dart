@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/core/common/toast/show_toast.dart';
-import 'package:my_store/core/extensions/context_extensions.dart';
-import 'package:my_store/core/styles/colors/colors_dark.dart';
-import 'package:my_store/features/admin/add-categories/presentation/bloc/delete-category/delete_category_bloc.dart';
-import 'package:my_store/features/admin/add-categories/presentation/bloc/get-all-categories/get_all_admin_categories_bloc.dart';
+import '../../../../../../core/common/toast/show_toast.dart';
+import '../../../../../../core/extensions/context_extensions.dart';
+import '../../../../../../core/styles/colors/colors_dark.dart';
+import '../../bloc/delete-category/delete_category_bloc.dart';
+import '../../bloc/get-all-categories/get_all_admin_categories_bloc.dart';
 
 class DeleteCategoriesWidget extends StatelessWidget {
   const DeleteCategoriesWidget({

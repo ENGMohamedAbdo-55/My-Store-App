@@ -1,12 +1,11 @@
 import '../../../../core/language/lang_keys.dart';
-import '../models/sign_up_request_body.dart';
-import '../models/sign_up_response.dart';
-import '../models/user_role_response.dart';
-
 import '../../../../core/service/graphql/api_result.dart';
 import '../data-source/auth_data_source.dart';
 import '../models/login_request_body.dart';
 import '../models/login_response.dart';
+import '../models/sign_up_request_body.dart';
+import '../models/sign_up_response.dart';
+import '../models/user_role_response.dart';
 
 class AuthRepo {
   const AuthRepo(this._dataSource);

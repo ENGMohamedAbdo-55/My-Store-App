@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:my_store/features/admin/add-categories/data/repos/categories_admin_repos.dart';
+import '../../../data/repos/categories_admin_repos.dart';
 
 part 'delete_category_event.dart';
 part 'delete_category_state.dart';

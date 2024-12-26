@@ -1,5 +1,6 @@
-import 'package:my_store/features/admin/add-categories/data/models/create_category_request_body.dart';
-import 'package:my_store/features/admin/add-categories/data/models/create_category_response.dart';
+import '../models/create_category_request_body.dart';
+import '../models/create_category_response.dart';
+import '../models/update_category_request_body.dart';
 
 import '../../../../../core/service/graphql/api_result.dart';
 import '../../../../../core/utils/app_strings.dart';
@@ -40,15 +41,15 @@ class CategoriesAdminRepos {
     }
   }
 
-  // // Update Category
-  // Future<ApiResult<void>> updateCategory({
-  //   required UpdateCategoryRequestBody body,
-  // }) async {
-  //   try {
-  //     final response = await _dataSource.updateCategory(body);
-  //     return ApiResult.success(response);
-  //   } catch (e) {
-  //     return const ApiResult.failure(errorMessage);
-  //   }
-  // }
+  //  Update Category
+  Future<ApiResult<void>> updateCategory({
+    required UpdateCategoryRequestBody body,
+  }) async {
+    try {
+      final response = await _dataSource.updateCategory(body);
+      return ApiResult.success(response);
+    } catch (e) {
+      return const ApiResult.failure(errMessage);
+    }
+  }
 }

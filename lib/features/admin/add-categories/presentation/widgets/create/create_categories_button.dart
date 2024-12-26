@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/core/app/upload-image/cubit/upload_image_cubit.dart';
-import 'package:my_store/core/di/injection_container.dart';
-import 'package:my_store/features/admin/add-categories/presentation/bloc/create-category/create_category_bloc.dart';
-import 'package:my_store/features/admin/add-categories/presentation/bloc/get-all-categories/get_all_admin_categories_bloc.dart';
+import '../../../../../../core/app/upload-image/cubit/upload_image_cubit.dart';
+import '../../../../../../core/di/injection_container.dart';
+import '../../bloc/create-category/create_category_bloc.dart';
+import '../../bloc/get-all-categories/get_all_admin_categories_bloc.dart';
 import '../../../../../../core/common/bottom-sheet/custom_bottom_sheet.dart';
 import '../../../../../../core/common/widgets/custom_button.dart';
 import '../../../../../../core/common/widgets/text_app.dart';

@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../../../core/app/upload-image/cubit/upload_image_cubit.dart';
+import '../../../../../../core/common/toast/show_toast.dart';
+import '../../../data/models/update_category_request_body.dart';
+import '../../bloc/update-category/update_categories_bloc.dart';
 import '../../../../../../core/common/widgets/custom_button.dart';
 import '../../../../../../core/common/widgets/custom_text_field.dart';
 import '../../../../../../core/common/widgets/text_app.dart';
@@ -11,8 +16,14 @@ import '../../../../../../core/styles/fonts/font_weight_helper.dart';
 import 'update_categories_image.dart';
 
 class UpdateCategoriesBottomSheet extends StatefulWidget {
-  const UpdateCategoriesBottomSheet({super.key});
-
+  const UpdateCategoriesBottomSheet(
+      {super.key,
+      required this.categoryId,
+      required this.categoryName,
+      required this.imageUrl});
+  final String categoryId;
+  final String categoryName;
+  final String imageUrl;
   @override
   State<UpdateCategoriesBottomSheet> createState() =>
       _UpdateCategoriesBottomSheetState();
@@ -23,6 +34,11 @@ class _UpdateCategoriesBottomSheetState
   final formKey = GlobalKey<FormState>();
   TextEditingController categoryNameController = TextEditingController();
   @override
+  void initState() {
+    super.initState();
+    categoryNameController.text = widget.categoryName;
+  }
+
   void dispose() {
     categoryNameController.dispose();
     super.dispose();
@@ -68,9 +84,7 @@ class _UpdateCategoriesBottomSheetState
             SizedBox(
               height: 10.h,
             ),
-            const UpdateCategoriesImage(
-                imageUrl:
-                    'https://images.unsplash.com/photo-1731872468251-e630bf9d0f4e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQ4fGFldTZyTC1qNmV3fHxlbnwwfHx8fHw%3D'),
+            UpdateCategoriesImage(imageUrl: widget.imageUrl),
             SizedBox(
               height: 10.h,
             ),
@@ -99,15 +113,53 @@ class _UpdateCategoriesBottomSheetState
             SizedBox(
               height: 20.h,
             ),
-            CustomButton(
-              onPressed: () {},
-              lastRadius: 20,
-              threeRadius: 20,
-              text: 'Update this category',
-              textColor: ColorsDark.blueDark,
-              width: MediaQuery.of(context).size.width,
-              height: 50.h,
-              backgroundColor: ColorsDark.white,
+            BlocConsumer<UploadImageCubit, UploadImageState>(
+              listener: (context, state) {
+                state.whenOrNull(success: () {
+                  context.pop();
+                  ShowToast.showToastSuccessTop(
+                    message:
+                        '${categoryNameController.text}Update Successfully',
+                  );
+                }, error: (error) {
+                  ShowToast.showToastErrorTop(
+                    message: '',
+                  );
+                });
+              },
+              builder: (context, state) {
+                return state.maybeWhen(
+                  loading: () {
+                    return Container(
+                      height: 50.h,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Center(
+                        child: CircularProgressIndicator(
+                          color: ColorsDark.blueDark,
+                        ),
+                      ),
+                    );
+                  },
+                  orElse: () {
+                    return CustomButton(
+                      onPressed: () {
+                        _validateUpdateCategory(context);
+                      },
+                      lastRadius: 20,
+                      threeRadius: 20,
+                      text: 'Update this category',
+                      textColor: ColorsDark.blueDark,
+                      width: MediaQuery.of(context).size.width,
+                      height: 50.h,
+                      backgroundColor: ColorsDark.white,
+                    );
+                  },
+                );
+              },
             ),
             SizedBox(
               height: 20.h,
@@ -116,5 +168,21 @@ class _UpdateCategoriesBottomSheetState
         ),
       ),
     );
+  }
+
+  void _validateUpdateCategory(BuildContext context) {
+    if (formKey.currentState!.validate()) {
+      context
+          .read<UpdateCategoriesBloc>()
+          .add(UpdateCategoriesEvent.updateCategory(
+            body: UpdateCategoryRequestBody(
+              name: categoryNameController.text.trim(),
+              image: context.read<UploadImageCubit>().getImageUrl.isEmpty
+                  ? widget.imageUrl
+                  : context.read<UploadImageCubit>().getImageUrl,
+              id: widget.categoryId,
+            ),
+          ));
+    }
   }
 }
