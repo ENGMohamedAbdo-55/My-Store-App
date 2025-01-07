@@ -1,14 +1,14 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/core/common/widgets/custom_button.dart';
-import 'package:my_store/core/common/widgets/custom_drop_down.dart';
-import 'package:my_store/core/common/widgets/custom_text_field.dart';
-import 'package:my_store/core/common/widgets/text_app.dart';
-import 'package:my_store/core/extensions/context_extensions.dart';
-import 'package:my_store/core/styles/colors/colors_dark.dart';
-import 'package:my_store/core/styles/fonts/font_family_helper.dart';
-import 'package:my_store/core/styles/fonts/font_weight_helper.dart';
-import 'package:my_store/features/admin/add-products/presentation/widgets/create/create_product_images.dart';
+import '../../../../../../core/common/widgets/custom_button.dart';
+import '../../../../../../core/common/widgets/custom_drop_down.dart';
+import '../../../../../../core/common/widgets/custom_text_field.dart';
+import '../../../../../../core/common/widgets/text_app.dart';
+import '../../../../../../core/extensions/context_extensions.dart';
+import '../../../../../../core/styles/colors/colors_dark.dart';
+import '../../../../../../core/styles/fonts/font_family_helper.dart';
+import '../../../../../../core/styles/fonts/font_weight_helper.dart';
+import 'create_product_images.dart';
 
 class CreateProductBottomSheet extends StatefulWidget {
   const CreateProductBottomSheet({super.key});

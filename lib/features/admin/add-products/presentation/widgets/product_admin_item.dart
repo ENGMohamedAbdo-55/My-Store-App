@@ -2,14 +2,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/core/common/bottom-sheet/custom_bottom_sheet.dart';
-import 'package:my_store/core/common/widgets/custom_container_linear_admin.dart';
-import 'package:my_store/core/common/widgets/text_app.dart';
-import 'package:my_store/core/extensions/context_extensions.dart';
-import 'package:my_store/core/styles/fonts/font_family_helper.dart';
-import 'package:my_store/core/styles/fonts/font_weight_helper.dart';
-import 'package:my_store/features/admin/add-categories/presentation/widgets/update/update_categories_bottom_sheet_.dart';
-import 'package:my_store/features/admin/add-products/presentation/widgets/update/update_product_bottom_sheet.dart';
+import '../../../../../core/common/bottom-sheet/custom_bottom_sheet.dart';
+import '../../../../../core/common/widgets/custom_container_linear_admin.dart';
+import '../../../../../core/common/widgets/text_app.dart';
+import '../../../../../core/extensions/context_extensions.dart';
+import '../../../../../core/styles/fonts/font_family_helper.dart';
+import '../../../../../core/styles/fonts/font_weight_helper.dart';
+import '../../../add-categories/presentation/widgets/update/update_categories_bottom_sheet_.dart';
+import 'update/update_product_bottom_sheet.dart';
 
 class ProductAdminItem extends StatelessWidget {
   const ProductAdminItem({

@@ -1,12 +1,14 @@
 import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import '../../../data/models/get_all_categories_response.dart';
 import '../../../data/repos/categories_admin_repos.dart';
 
+part 'get_all_admin_categories_bloc.freezed.dart';
 part 'get_all_admin_categories_event.dart';
 part 'get_all_admin_categories_state.dart';
-part 'get_all_admin_categories_bloc.freezed.dart';
 
 class GetAllAdminCategoriesBloc
     extends Bloc<GetAllAdminCategoriesEvent, GetAllAdminCategoriesState> {

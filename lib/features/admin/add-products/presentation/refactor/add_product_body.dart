@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_store/features/admin/add-products/presentation/widgets/create/create_product.dart';
-import 'package:my_store/features/admin/add-products/presentation/widgets/product_admin_item.dart';
+import '../widgets/create/create_product.dart';
+import '../widgets/product_admin_item.dart';
 
 class AddProductBody extends StatelessWidget {
   const AddProductBody({super.key});

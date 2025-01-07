@@ -1,14 +1,15 @@
 import 'package:dio/dio.dart';
+import 'package:retrofit/retrofit.dart';
+
 import '../../../features/admin/add-categories/data/models/create_category_response.dart';
 import '../../../features/admin/add-categories/data/models/get_all_categories_response.dart';
 import '../../../features/admin/dashboard/data/models/categories_number_response.dart';
 import '../../../features/admin/dashboard/data/models/products_number_response.dart';
 import '../../../features/admin/dashboard/data/models/users_number_response.dart';
-import '../../app/upload-image/model/upload_image_response.dart';
-import '../../../features/auth/data/models/sign_up_response.dart';
 import '../../../features/auth/data/models/login_response.dart';
+import '../../../features/auth/data/models/sign_up_response.dart';
 import '../../../features/auth/data/models/user_role_response.dart';
-import 'package:retrofit/retrofit.dart';
+import '../../app/upload-image/model/upload_image_response.dart';
 
 part 'api_service.g.dart';
 
