@@ -2,11 +2,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_store/core/common/bottom-sheet/custom_bottom_sheet.dart';
 import 'package:my_store/core/common/widgets/custom_container_linear_admin.dart';
 import 'package:my_store/core/common/widgets/text_app.dart';
 import 'package:my_store/core/extensions/context_extensions.dart';
 import 'package:my_store/core/styles/fonts/font_family_helper.dart';
 import 'package:my_store/core/styles/fonts/font_weight_helper.dart';
+import 'package:my_store/features/admin/add-categories/presentation/widgets/update/update_categories_bottom_sheet_.dart';
+import 'package:my_store/features/admin/add-products/presentation/widgets/update/update_product_bottom_sheet.dart';
 
 class ProductAdminItem extends StatelessWidget {
   const ProductAdminItem({
@@ -32,7 +35,7 @@ class ProductAdminItem extends StatelessWidget {
             children: [
               //! Delete Button
               Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 10.w),
+                padding: EdgeInsets.symmetric(horizontal: 10.w),
                 child: Icon(
                   Icons.delete,
                   color: Colors.red,
@@ -41,7 +44,12 @@ class ProductAdminItem extends StatelessWidget {
               ),
               //! Update Button
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  CustomBottomSheet.showCustomBottomSheet(
+                    context: context,
+                    widget: UpdateProductBottomSheet(),
+                  );
+                },
                 padding: EdgeInsets.zero,
                 icon: Icon(Icons.edit),
                 color: Colors.green,
