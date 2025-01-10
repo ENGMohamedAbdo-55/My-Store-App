@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_store/core/extensions/string_extension.dart';
 import '../../../../../core/common/bottom-sheet/custom_bottom_sheet.dart';
 import '../../../../../core/common/widgets/custom_container_linear_admin.dart';
 import '../../../../../core/common/widgets/text_app.dart';
@@ -63,7 +64,7 @@ class ProductAdminItem extends StatelessWidget {
               child: CachedNetworkImage(
                 height: 200.h,
                 width: 120.w,
-                imageUrl: imageUrl,
+                imageUrl: imageUrl.imageProductFormate(),
                 errorWidget: (context, url, error) => Icon(
                   Icons.error,
                   color: Colors.red,

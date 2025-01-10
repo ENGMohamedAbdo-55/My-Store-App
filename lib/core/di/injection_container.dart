@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:my_store/features/admin/add-products/data/data-source/products_admin_data_source.dart';
+import 'package:my_store/features/admin/add-products/data/repos/products_admin_repo.dart';
+import 'package:my_store/features/admin/add-products/presentation/bloc/products-bloc/get_all_admin_products_bloc.dart';
 import '../../features/admin/add-categories/presentation/bloc/create-category/create_category_bloc.dart';
 import '../../features/admin/add-categories/presentation/bloc/delete-category/delete_category_bloc.dart';
 import '../../features/admin/add-categories/presentation/bloc/update-category/update_categories_bloc.dart';
@@ -27,6 +30,7 @@ Future<void> setupInjector() async {
   await _initAuth();
   await _initDashboard();
   await _initCategoriesAdmin();
+  await _initProductsAdmin();
 }
 
 Future<void> _initCore() async {
@@ -58,8 +62,8 @@ Future<void> _initDashboard() async {
     ..registerFactory(() => CategoriesNumberBloc(sl()))
     ..registerFactory(() => UsersNumberBloc(sl()));
 }
-Future<void> _initCategoriesAdmin() async {
 
+Future<void> _initCategoriesAdmin() async {
   sl
     ..registerLazySingleton(() => CategoriesAdminRepos(sl()))
     ..registerLazySingleton(() => CategoriesAdminDataSource(sl()))
@@ -67,4 +71,11 @@ Future<void> _initCategoriesAdmin() async {
     ..registerFactory(() => CreateCategoryBloc(sl()))
     ..registerFactory(() => DeleteCategoryBloc(sl()))
     ..registerFactory(() => UpdateCategoriesBloc(sl()));
+}
+
+Future<void> _initProductsAdmin() async {
+  sl
+    ..registerLazySingleton(() => ProductsAdminRepo(sl()))
+    ..registerLazySingleton(() => ProductsAdminDataSource(sl()))
+    ..registerFactory(() => GetAllAdminProductsBloc(sl()));
 }

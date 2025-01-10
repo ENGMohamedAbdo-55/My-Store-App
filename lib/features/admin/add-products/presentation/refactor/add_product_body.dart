@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_store/core/common/loading/empty_screen.dart';
+import 'package:my_store/core/common/loading/loading_shimmer.dart';
+import 'package:my_store/features/admin/add-products/presentation/bloc/products-bloc/get_all_admin_products_bloc.dart';
 import '../widgets/create/create_product.dart';
 import '../widgets/product_admin_item.dart';
 
@@ -19,7 +22,12 @@ class AddProductBody extends StatelessWidget {
           CreateProduct(),
           Expanded(
             child: RefreshIndicator(
-              onRefresh: () async {},
+              onRefresh: () async {
+                context.read<GetAllAdminProductsBloc>().add(
+                      GetAllAdminProductsEvent.getAllProducts(
+                          isNotLoading: true),
+                    );
+              },
               child: CustomScrollView(
                 slivers: [
                   SliverToBoxAdapter(
@@ -28,24 +36,57 @@ class AddProductBody extends StatelessWidget {
                     ),
                   ),
                   SliverToBoxAdapter(
-                    child: GridView.builder(
-                      shrinkWrap: true,
-                      padding: EdgeInsets.zero,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: 10,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        childAspectRatio: 0.7,
-                        crossAxisSpacing: 10.w,
-                        mainAxisSpacing: 10.h,
-                      ),
-                      itemBuilder: (context, index) {
-                        return ProductAdminItem(
-                          categoryName: 'electronic',
-                          imageUrl:
-                              'https://images.unsplash.com/photo-1735399563332-568a3a1e2e6b?q=80&w=1827&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                          title: 'LabTop',
-                          price: '333',
+                    child: BlocBuilder<GetAllAdminProductsBloc,
+                        GetAllAdminProductsState>(
+                      builder: (context, state) {
+                        return state.when(
+                          loading: () {
+                            return GridView.builder(
+                              shrinkWrap: true,
+                              padding: EdgeInsets.zero,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemCount: 10,
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                childAspectRatio: 0.7,
+                                crossAxisSpacing: 10.w,
+                                mainAxisSpacing: 10.h,
+                              ),
+                              itemBuilder: (context, index) {
+                                return LoadingShimmer(
+                                  height: 220.h,
+                                  width: 165.w,
+                                );
+                              },
+                            );
+                          },
+                          success: (list) {
+                            return GridView.builder(
+                              shrinkWrap: true,
+                              padding: EdgeInsets.zero,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemCount: list.length,
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                childAspectRatio: 0.7,
+                                crossAxisSpacing: 10.w,
+                                mainAxisSpacing: 10.h,
+                              ),
+                              itemBuilder: (context, index) {
+                                return ProductAdminItem(
+                                  categoryName:
+                                      list[index].category!.name ?? 'not found',
+                                  imageUrl: list[index].images!.first,
+                                  title: list[index].title ?? 'not found',
+                                  price: list[index].price.toString(),
+                                );
+                              },
+                            );
+                          },
+                          error: Text.new,
+                          empty: EmptyScreen.new,
                         );
                       },
                     ),
