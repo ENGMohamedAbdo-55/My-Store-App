@@ -1,4 +1,6 @@
 
+import 'package:my_store/features/admin/add-products/data/models/create_product_request_body.dart';
+
 class ProductsQueries {
   factory ProductsQueries() {
     return _instance;
@@ -28,34 +30,34 @@ class ProductsQueries {
     };
   }
 
-//   //Create Product
-//   Map<String, dynamic> createProductMap(
-//       {required CreateProductRequestBody body}) {
-//     return {
-//       'query': r'''
-//           mutation CreateProduct($title: String!, $price: Float!, $description:String!, $categoryId: Float!,$imagesList:[String!]!  ) {
-//               addProduct(
-//                 data: {
-//                   title: $title,
-//                   price: $price
-//                   description: $description
-//                   categoryId: $categoryId
-//                   images: $imagesList
-//                 }
-//               ) {
-//                 title
-//               }
-//             }
-//         ''',
-//       'variables': {
-//         'title': body.title,
-//         'price': body.price,
-//         'description': body.description,
-//         'categoryId': body.categoryId,
-//         'imagesList': body.imageList,
-//       },
-//     };
-//   }
+  //Create Product
+  Map<String, dynamic> createProductMap(
+      {required CreateProductRequestBody body}) {
+    return {
+      'query': r'''
+          mutation CreateProduct($title: String!, $price: Float!, $description:String!, $categoryId: Float!,$imagesList:[String!]!  ) {
+              addProduct(
+                data: {
+                  title: $title,
+                  price: $price
+                  description: $description
+                  categoryId: $categoryId
+                  images: $imagesList
+                }
+              ) {
+                title
+              }
+            }
+        ''',
+      'variables': {
+        'title': body.title,
+        'price': body.price,
+        'description': body.description,
+        'categoryId': body.categoryId,
+        'imagesList': body.imageList,
+      },
+    };
+  }
 
 //   Map<String, dynamic> deleteMapQuery({
 //     required String productId,

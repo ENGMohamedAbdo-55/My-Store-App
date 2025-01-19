@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:my_store/features/admin/add-products/data/data-source/products_admin_data_source.dart';
 import 'package:my_store/features/admin/add-products/data/repos/products_admin_repo.dart';
+import 'package:my_store/features/admin/add-products/presentation/bloc/create-product/create_product_bloc.dart';
 import 'package:my_store/features/admin/add-products/presentation/bloc/products-bloc/get_all_admin_products_bloc.dart';
 import '../../features/admin/add-categories/presentation/bloc/create-category/create_category_bloc.dart';
 import '../../features/admin/add-categories/presentation/bloc/delete-category/delete_category_bloc.dart';
@@ -77,5 +78,6 @@ Future<void> _initProductsAdmin() async {
   sl
     ..registerLazySingleton(() => ProductsAdminRepo(sl()))
     ..registerLazySingleton(() => ProductsAdminDataSource(sl()))
-    ..registerFactory(() => GetAllAdminProductsBloc(sl()));
+    ..registerFactory(() => GetAllAdminProductsBloc(sl()))
+    ..registerFactory(() => CreateProductBloc(sl()));
 }
