@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_store/core/app/upload-image/cubit/upload_image_cubit.dart';
 import 'package:my_store/core/di/injection_container.dart';
 import 'package:my_store/features/admin/add-products/presentation/bloc/create-product/create_product_bloc.dart';
 import 'package:my_store/features/admin/add-products/presentation/bloc/products-bloc/get_all_admin_products_bloc.dart';
@@ -37,9 +38,8 @@ class CreateProduct extends StatelessWidget {
                 
               ),
               BlocProvider(
-                create: (context) => sl<GetAllAdminProductsBloc>()
-                  ..add(GetAllAdminProductsEvent.getAllProducts(
-                      isNotLoading: true)),
+                create: (context) => sl<UploadImageCubit>()
+                 
               ),
             ], child: CreateProductBottomSheet()),
           );
