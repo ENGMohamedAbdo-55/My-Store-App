@@ -12,6 +12,7 @@ import '../../../../../../core/extensions/context_extensions.dart';
 import '../../../../../../core/styles/colors/colors_dark.dart';
 import '../../../../../../core/styles/fonts/font_family_helper.dart';
 import '../../../../../../core/styles/fonts/font_weight_helper.dart';
+import '../../../../add-categories/presentation/bloc/get-all-categories/get_all_admin_categories_bloc.dart';
 import 'create_product_bottom_sheet.dart';
 
 class CreateProduct extends StatelessWidget {
@@ -31,18 +32,25 @@ class CreateProduct extends StatelessWidget {
       CustomButton(
         onPressed: () {
           CustomBottomSheet.showCustomBottomSheet(
-            context: context,
-            widget: MultiBlocProvider(providers: [
-              BlocProvider(
-                create: (context) => sl<CreateProductBloc>(),
-                
-              ),
-              BlocProvider(
-                create: (context) => sl<UploadImageCubit>()
-                 
-              ),
-            ], child: CreateProductBottomSheet()),
-          );
+              context: context,
+              widget: MultiBlocProvider(providers: [
+                BlocProvider(
+                  create: (context) => sl<CreateProductBloc>(),
+                ),
+                BlocProvider(create: (context) => sl<UploadImageCubit>()),
+                BlocProvider(
+                  create: (context) => sl<GetAllAdminCategoriesBloc>()
+                    ..add(const GetAllAdminCategoriesEvent.fetchAdminCategories(
+                        isNotLoading: false)),
+                ),
+              ], child: CreateProductBottomSheet()),
+              whenComplete: () {
+                context.read<GetAllAdminProductsBloc>()
+                  ..add(
+                    GetAllAdminProductsEvent.getAllProducts(
+                        isNotLoading: false),
+                  );
+              });
         },
         lastRadius: 10,
         threeRadius: 10,

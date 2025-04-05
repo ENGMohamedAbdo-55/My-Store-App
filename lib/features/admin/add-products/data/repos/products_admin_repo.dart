@@ -33,17 +33,17 @@ class ProductsAdminRepo {
     }
   }
 
-  // // Delete Products
-  // Future<ApiResult<void>> deleteProducts({
-  //   required String productId,
-  // }) async {
-  //   try {
-  //     final response = await _dataSource.deleteProducts(productId: productId);
-  //     return ApiResult.success(response);
-  //   } catch (e) {
-  //     return const ApiResult.failure(errorMessage);
-  //   }
-  // }
+  // Delete Products
+  Future<ApiResult<void>> deleteProducts({
+    required String productId,
+  }) async {
+    try {
+      final response = await _dataSource.deleteProducts(productId: productId);
+      return ApiResult.success(response);
+    } catch (e) {
+      return const ApiResult.failure(errMessage);
+    }
+  }
 
   // // Update Products Admin
   // Future<ApiResult<void>> updateProductsAdmin({

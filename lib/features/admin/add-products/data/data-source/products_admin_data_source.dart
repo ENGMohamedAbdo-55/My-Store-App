@@ -27,13 +27,14 @@ class ProductsAdminDataSource {
   }
 
   // // delete products
-  // Future<void> deleteProducts({
-  //   required String productId,
-  // }) async {
-  //   final response = await _graphql
-  //       .deleteProduct(ProductsQueries().deleteMapQuery(productId: productId));
-  //   return response;
-  // }
+  Future<void> deleteProducts({
+    required String productId,
+  }) async {
+    final response = await _graphql
+        .deleteProduct(ProductsQueries().deleteMapQuery(productId: productId));
+    return response;
+  }
+  
 
   // // Update products admin
   // Future<void> updateProductsAdmin({
